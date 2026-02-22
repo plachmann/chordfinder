@@ -1,0 +1,8 @@
+node_modules/
+.expo/
+build/
+dist/
+__pycache__/
+*.pyc
+.venv/
+bin/
