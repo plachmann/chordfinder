@@ -11,13 +11,14 @@ import { useListeningSession } from "../hooks/useListeningSession";
 import { useInstrument } from "../hooks/useInstrument";
 import { InstrumentPicker } from "../components/InstrumentPicker";
 
-export function ListeningScreen({ navigation }: any) {
-  const { state, start, stop } = useListeningSession();
+export function ListeningScreen({ navigation, route }: any) {
+  const demo: boolean = route?.params?.demo ?? false;
+  const { state, start, startDemo, stop } = useListeningSession();
   const { instrument, setInstrument } = useInstrument();
   const pulse = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
-    start();
+    demo ? startDemo() : start();
     const anim = Animated.loop(
       Animated.sequence([
         Animated.timing(pulse, {
@@ -37,7 +38,7 @@ export function ListeningScreen({ navigation }: any) {
       anim.stop();
       stop();
     };
-  }, []);
+  }, [demo]);
 
   const handleStop = async () => {
     await stop();

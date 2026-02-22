@@ -20,6 +20,12 @@ export function HomeScreen({ navigation }: Props) {
       >
         <Text style={styles.listenText}>Listen</Text>
       </Pressable>
+      <Pressable
+        style={styles.demoButton}
+        onPress={() => navigation.navigate("Listening", { instrument, demo: true })}
+      >
+        <Text style={styles.demoText}>Demo</Text>
+      </Pressable>
     </View>
   );
 }
@@ -49,4 +55,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   listenText: { fontSize: 22, fontWeight: "700", color: "#fff" },
+  demoButton: {
+    marginTop: 16,
+    paddingVertical: 10,
+    paddingHorizontal: 32,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: "#6c47ff88",
+  },
+  demoText: { fontSize: 14, color: "#6c47ffcc", fontWeight: "600" },
 });
