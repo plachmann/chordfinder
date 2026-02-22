@@ -3,9 +3,11 @@ package transport
 import (
 	"encoding/json"
 	"log"
+	"math"
 	"net/http"
 	"sync"
 
+	"github.com/chordfinder/api/internal/chords"
 	"github.com/gorilla/websocket"
 )
 
@@ -75,7 +77,7 @@ func (h *Handler) ServeStream(w http.ResponseWriter, r *http.Request, sessionID 
 		}
 	}()
 
-	// Reader goroutine — receives binary PCM audio
+	// Reader goroutine — receives binary PCM audio, runs chord detection inline
 	go func() {
 		defer func() {
 			clientsMu.Lock()
@@ -83,14 +85,38 @@ func (h *Handler) ServeStream(w http.ResponseWriter, r *http.Request, sessionID 
 			clientsMu.Unlock()
 			close(c.send)
 		}()
+		detector := chords.NewSectionDetector()
+		var pcmBuf []float32
+		const chunkSamples = 4000 // 250ms at 16kHz
+
 		for {
 			msgType, data, err := conn.ReadMessage()
 			if err != nil {
 				return
 			}
-			if msgType == websocket.BinaryMessage {
-				// Audio data — worker integration wired in Task 6
-				_ = data
+			if msgType != websocket.BinaryMessage {
+				continue
+			}
+			// data is raw 16-bit PCM, little-endian, mono, 16kHz
+			for i := 0; i+1 < len(data); i += 2 {
+				sample := int16(data[i]) | int16(data[i+1])<<8
+				pcmBuf = append(pcmBuf, float32(sample)/math.MaxInt16)
+			}
+			for len(pcmBuf) >= chunkSamples {
+				chunk := pcmBuf[:chunkSamples]
+				pcmBuf = pcmBuf[chunkSamples:]
+				result := chords.DetectChord(chunk, 16000)
+				detector.AddChord(result.Name, result.Confidence)
+				sections := detector.GetSections()
+				if len(sections) > 0 {
+					latest := sections[len(sections)-1]
+					c.send <- WSEvent{
+						Type:       "chord_update",
+						Section:    latest.Label,
+						Chords:     latest.Chords,
+						Confidence: result.Confidence,
+					}
+				}
 			}
 		}
 	}()
