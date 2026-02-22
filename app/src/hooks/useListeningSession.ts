@@ -1,7 +1,6 @@
 import { useState, useRef, useCallback } from "react";
 import { SessionState, Section, WSEvent } from "../types/api";
-
-const API_BASE = "http://localhost:8080";
+import { API_BASE } from "../config";
 
 export function useListeningSession() {
   const [state, setState] = useState<SessionState>({ status: "idle", sections: [] });

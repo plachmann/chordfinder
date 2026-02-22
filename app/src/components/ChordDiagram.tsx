@@ -4,7 +4,7 @@ import { GuitarDiagram } from "./GuitarDiagram";
 import { PianoDiagram } from "./PianoDiagram";
 import { Instrument } from "../types/api";
 
-const API_BASE = "http://localhost:8080";
+import { API_BASE } from "../config";
 
 const STRING_COUNTS: Record<Instrument, number> = {
   guitar: 6,
