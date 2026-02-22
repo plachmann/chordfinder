@@ -6,9 +6,15 @@ import (
 	"math"
 	"net/http"
 	"sync"
+	"time"
 
 	"github.com/chordfinder/api/internal/chords"
 	"github.com/gorilla/websocket"
+)
+
+const (
+	sessionTimeout    = 10 * time.Minute
+	silenceThreshold  = 20 // consecutive silent chunks before sending no_signal
 )
 
 var upgrader = websocket.Upgrader{
@@ -88,12 +94,17 @@ func (h *Handler) ServeStream(w http.ResponseWriter, r *http.Request, sessionID 
 		detector := chords.NewSectionDetector()
 		var pcmBuf []float32
 		const chunkSamples = 4000 // 250ms at 16kHz
+		silentChunks := 0
+		noSignalSent := false
+
+		conn.SetReadDeadline(time.Now().Add(sessionTimeout))
 
 		for {
 			msgType, data, err := conn.ReadMessage()
 			if err != nil {
 				return
 			}
+			conn.SetReadDeadline(time.Now().Add(sessionTimeout))
 			if msgType != websocket.BinaryMessage {
 				continue
 			}
@@ -106,6 +117,25 @@ func (h *Handler) ServeStream(w http.ResponseWriter, r *http.Request, sessionID 
 				chunk := pcmBuf[:chunkSamples]
 				pcmBuf = pcmBuf[chunkSamples:]
 				result := chords.DetectChord(chunk, 16000)
+				if result.Confidence == "none" {
+					silentChunks++
+					if silentChunks >= silenceThreshold && !noSignalSent {
+						noSignalSent = true
+						select {
+						case c.send <- WSEvent{Type: "status", State: "no_signal"}:
+						default:
+						}
+					}
+					continue
+				}
+				silentChunks = 0
+				if noSignalSent {
+					noSignalSent = false
+					select {
+					case c.send <- WSEvent{Type: "status", State: "listening"}:
+					default:
+					}
+				}
 				detector.AddChord(result.Name, result.Confidence)
 				sections := detector.GetSections()
 				if len(sections) > 0 {

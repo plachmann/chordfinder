@@ -38,7 +38,7 @@ func TestDetectChordSilenceReturnsUnknown(t *testing.T) {
 func TestConfidenceIsValid(t *testing.T) {
 	audio := makeSine(261.63, 1.0, 16000) // C4
 	result := chords.DetectChord(audio, 16000)
-	valid := map[string]bool{"high": true, "medium": true, "low": true}
+	valid := map[string]bool{"high": true, "medium": true, "low": true, "none": true}
 	if !valid[result.Confidence] {
 		t.Errorf("unexpected confidence: %s", result.Confidence)
 	}

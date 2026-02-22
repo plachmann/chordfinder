@@ -55,7 +55,7 @@ func buildTemplates() map[string][12]float64 {
 // audio: mono float32 samples normalized to [-1, 1], sr: sample rate in Hz.
 func DetectChord(audio []float32, sr int) DetectionResult {
 	if rms(audio) < 0.001 {
-		return DetectionResult{Name: "?", Confidence: "low"}
+		return DetectionResult{Name: "?", Confidence: "none"}
 	}
 
 	chroma := computeChroma(audio, sr)
