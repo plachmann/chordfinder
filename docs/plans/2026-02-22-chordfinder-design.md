@@ -13,8 +13,7 @@ Users select their instrument (guitar, banjo, mandolin, or piano) and see chord 
 
 **Components:**
 - **React Native app** — cross-platform iOS/Android
-- **Go API server** — HTTP/WebSocket, OAS 3.1 spec as source of truth
-- **Python chord detection worker** — audio analysis via librosa, called from Go via gRPC/subprocess
+- **Go API server** — HTTP/WebSocket, OAS 3.1 spec as source of truth, chord detection built-in
 
 ```
 [React Native App]
@@ -25,13 +24,9 @@ Users select their instrument (guitar, banjo, mandolin, or piano) and see chord 
       │
       ├── Audio ingestion & buffering
       ├── Session management
-      ├── Response formatting
-      └── gRPC / subprocess
-            ▼
-      [Python Chord Worker]
-            ├── librosa (chromagram / FFT)
-            ├── Chord template matching
-            └── Section segmentation (Laplacian)
+      ├── Chord detection (FFT + chroma + template matching)
+      ├── Section segmentation
+      └── Response formatting
 
 [Chord Voicing DB]  ←──  Go API
 ```
@@ -91,11 +86,16 @@ GET    /chords/{chord_name}
 
 ## Chord Detection Engine
 
-**Approach:** Chroma-based detection via Python worker
+**Approach:** Chroma-based detection implemented entirely in Go
 
-1. Audio → FFT → 12-bin Chromagram (librosa)
+1. Audio → FFT → 12-bin Chromagram (using `mjibson/go-dsp/fft` or equivalent)
 2. Chromagram → chord template matching → chord label
-3. Chord sequence → Laplacian structural segmentation → section labels
+3. Chord sequence → section segmentation → section labels
+
+**Go Libraries:**
+- `mjibson/go-dsp` — FFT
+- `gordonklaus/portaudio` (optional, for local testing) — or raw PCM from WebSocket
+- All chord template matching implemented in pure Go
 
 **Section Labels (v1):** Heuristic — "Section A", "Section B", etc. True verse/chorus labeling deferred to v2.
 

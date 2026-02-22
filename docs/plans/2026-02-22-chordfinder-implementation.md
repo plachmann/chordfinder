@@ -4,9 +4,9 @@
 
 **Goal:** Build a cross-platform mobile app (iOS + Android) that listens to music and returns real-time chord progressions broken down by song section, with instrument-specific chord diagrams.
 
-**Architecture:** React Native app streams microphone audio over WebSocket to a Go API server. The Go server forwards audio to a Python chord detection worker (librosa-based), receives chord/section events, and pushes them back to the app. Chord voicing diagrams (guitar, banjo, mandolin, piano) are rendered as SVGs in the app from structured data returned by the API.
+**Architecture:** React Native app streams microphone audio over WebSocket to a Go API server. The Go server performs chord detection in-process (FFT via `mjibson/go-dsp`, chroma template matching, section segmentation), then pushes chord/section events back to the app. No external worker process. Chord voicing diagrams (guitar, banjo, mandolin, piano) are rendered as SVGs in the app from structured data returned by the API.
 
-**Tech Stack:** React Native (iOS/Android), Go 1.22+ (API, gorilla/websocket, chi router), Python 3.11+ (librosa, numpy, scipy), JSON file-based chord voicing DB (v1), OpenAPI 3.1 spec as API contract.
+**Tech Stack:** React Native (iOS/Android), Go 1.22+ (API, gorilla/websocket, chi router, go-dsp for FFT), JSON file-based chord voicing DB (v1), OpenAPI 3.1 spec as API contract.
 
 ---
 
@@ -709,498 +709,445 @@ git commit -m "feat: add WebSocket streaming hub for audio sessions"
 
 ---
 
-## Task 5: Python Chord Detection Worker
+## Task 5: Go Chord Detection Engine
 
 **Files:**
-- Create: `worker/chord_detector.py`
-- Create: `worker/section_detector.py`
-- Create: `worker/tests/test_chord_detector.py`
-- Create: `worker/tests/test_section_detector.py`
-- Modify: `worker/main.py`
+- Create: `api/internal/chords/detector.go`
+- Create: `api/internal/chords/detector_test.go`
+- Create: `api/internal/chords/sections.go`
+- Create: `api/internal/chords/sections_test.go`
 
-### Step 1: Write failing chord detection test
-
-```python
-# worker/tests/test_chord_detector.py
-import numpy as np
-import pytest
-import sys
-sys.path.insert(0, "..")
-from chord_detector import detect_chord
-
-def make_sine(freq_hz, duration_s=1.0, sr=16000):
-    t = np.linspace(0, duration_s, int(sr * duration_s), endpoint=False)
-    return np.sin(2 * np.pi * freq_hz * t).astype(np.float32)
-
-def test_detects_a_note():
-    # A4 = 440Hz — should detect chord containing A
-    audio = make_sine(440.0)
-    result = detect_chord(audio, sr=16000)
-    assert "result" in result
-    assert "confidence" in result
-    assert result["confidence"] in ("high", "medium", "low")
-
-def test_returns_unknown_for_silence():
-    audio = np.zeros(16000, dtype=np.float32)
-    result = detect_chord(audio, sr=16000)
-    assert result["result"] == "?"
-```
-
-### Step 2: Run — verify it fails
+### Step 1: Add go-dsp dependency
 
 ```bash
-cd worker && source .venv/bin/activate
-python -m pytest tests/test_chord_detector.py -v
-# Expected: FAIL — chord_detector module not found
+cd api
+go get github.com/mjibson/go-dsp/fft
 ```
 
-### Step 3: Implement chord_detector.py
-
-```python
-# worker/chord_detector.py
-import numpy as np
-import librosa
-
-# Chord templates: 12-bin chroma vectors for common chords
-# Each template is normalized; index 0 = C, 1 = C#, ..., 11 = B
-CHORD_TEMPLATES = {}
-
-def _build_templates():
-    major_intervals = [0, 4, 7]
-    minor_intervals = [0, 3, 7]
-    dom7_intervals  = [0, 4, 7, 10]
-    maj7_intervals  = [0, 4, 7, 11]
-    min7_intervals  = [0, 3, 7, 10]
-
-    note_names = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
-    types = [
-        ("",    major_intervals),
-        ("m",   minor_intervals),
-        ("7",   dom7_intervals),
-        ("maj7",maj7_intervals),
-        ("m7",  min7_intervals),
-    ]
-
-    for root_idx, root in enumerate(note_names):
-        for suffix, intervals in types:
-            chroma = np.zeros(12)
-            for interval in intervals:
-                chroma[(root_idx + interval) % 12] = 1.0
-            norm = np.linalg.norm(chroma)
-            if norm > 0:
-                chroma /= norm
-            CHORD_TEMPLATES[f"{root}{suffix}"] = chroma
-
-_build_templates()
-
-
-def detect_chord(audio: np.ndarray, sr: int = 16000) -> dict:
-    """
-    Detect the most likely chord in an audio buffer.
-    Returns {"result": "Am", "confidence": "high"}.
-    """
-    rms = np.sqrt(np.mean(audio ** 2))
-    if rms < 0.001:
-        return {"result": "?", "confidence": "low"}
-
-    # Compute chromagram
-    chroma = librosa.feature.chroma_cqt(y=audio.astype(np.float32), sr=sr)
-    chroma_mean = chroma.mean(axis=1)
-    norm = np.linalg.norm(chroma_mean)
-    if norm < 1e-6:
-        return {"result": "?", "confidence": "low"}
-    chroma_mean /= norm
-
-    # Template matching — find best chord
-    best_chord = "?"
-    best_score = -1.0
-    for chord_name, template in CHORD_TEMPLATES.items():
-        score = float(np.dot(chroma_mean, template))
-        if score > best_score:
-            best_score = score
-            best_chord = chord_name
-
-    # Map score to confidence
-    if best_score > 0.85:
-        confidence = "high"
-    elif best_score > 0.70:
-        confidence = "medium"
-    else:
-        confidence = "low"
-
-    return {"result": best_chord, "confidence": confidence}
-```
-
-### Step 4: Run test — verify pass
-
-```bash
-python -m pytest tests/test_chord_detector.py -v
-# Expected: PASS
-```
-
-### Step 5: Write failing section detector test
-
-```python
-# worker/tests/test_section_detector.py
-import pytest
-import sys
-sys.path.insert(0, "..")
-from section_detector import SectionDetector
-
-def test_accumulates_chords():
-    sd = SectionDetector()
-    for _ in range(10):
-        sd.add_chord("C", confidence="high")
-    for _ in range(10):
-        sd.add_chord("G", confidence="high")
-    sections = sd.get_sections()
-    assert len(sections) >= 1
-
-def test_returns_section_label():
-    sd = SectionDetector()
-    for chord in ["Am", "F", "C", "G"] * 4:
-        sd.add_chord(chord, confidence="high")
-    sections = sd.get_sections()
-    assert sections[0]["label"].startswith("Section")
-    assert isinstance(sections[0]["chords"], list)
-```
-
-### Step 6: Run — verify it fails
-
-```bash
-python -m pytest tests/test_section_detector.py -v
-# Expected: FAIL
-```
-
-### Step 7: Implement section_detector.py
-
-```python
-# worker/section_detector.py
-from collections import Counter
-from typing import List, Dict
-
-class SectionDetector:
-    """
-    Accumulates detected chords and groups them into repeating sections.
-    v1: groups by chord pattern repetition using a sliding window.
-    """
-    WINDOW = 8   # chords per candidate section
-    MIN_REPEATS = 2
-
-    def __init__(self):
-        self._chords: List[str] = []
-        self._section_counter = 0
-
-    def add_chord(self, chord: str, confidence: str = "high"):
-        if confidence != "low" or chord != "?":
-            self._chords.append(chord)
-
-    def get_sections(self) -> List[Dict]:
-        if not self._chords:
-            return []
-
-        # Simple approach: split into windows, name each unique window
-        seen_patterns: Dict[str, str] = {}
-        sections = []
-        label_idx = 0
-
-        chunks = [
-            self._chords[i:i + self.WINDOW]
-            for i in range(0, len(self._chords), self.WINDOW)
-            if self._chords[i:i + self.WINDOW]
-        ]
-
-        for chunk in chunks:
-            key = ",".join(chunk)
-            if key not in seen_patterns:
-                label = f"Section {chr(65 + label_idx)}"  # A, B, C...
-                seen_patterns[key] = label
-                label_idx += 1
-            label = seen_patterns[key]
-            # Merge with previous section if same label
-            if sections and sections[-1]["label"] == label:
-                continue
-            sections.append({
-                "label": label,
-                "chords": list(dict.fromkeys(chunk)),  # unique, ordered
-            })
-
-        return sections
-```
-
-### Step 8: Run all worker tests
-
-```bash
-python -m pytest tests/ -v
-# Expected: all PASS
-```
-
-### Step 9: Update worker/main.py to process audio from stdin
-
-```python
-# worker/main.py
-import sys
-import json
-import struct
-import numpy as np
-from chord_detector import detect_chord
-from section_detector import SectionDetector
-
-SR = 16000
-CHUNK_SAMPLES = SR // 4  # 250ms chunks
-
-def main():
-    sd = SectionDetector()
-    buffer = b""
-    print(json.dumps({"type": "status", "state": "ready"}), flush=True)
-
-    for line in sys.stdin.buffer:
-        # Each line is a hex-encoded PCM chunk
-        try:
-            chunk_bytes = bytes.fromhex(line.strip().decode())
-            buffer += chunk_bytes
-
-            bytes_needed = CHUNK_SAMPLES * 2  # 16-bit samples
-            while len(buffer) >= bytes_needed:
-                raw = buffer[:bytes_needed]
-                buffer = buffer[bytes_needed:]
-                audio = np.frombuffer(raw, dtype=np.int16).astype(np.float32) / 32768.0
-
-                detected = detect_chord(audio, sr=SR)
-                sd.add_chord(detected["result"], detected["confidence"])
-
-                sections = sd.get_sections()
-                if sections:
-                    latest = sections[-1]
-                    evt = {
-                        "type": "chord_update",
-                        "section": latest["label"],
-                        "chords": latest["chords"],
-                        "confidence": detected["confidence"],
-                    }
-                    print(json.dumps(evt), flush=True)
-        except Exception as e:
-            print(json.dumps({"type": "status", "state": "error", "message": str(e)}), flush=True)
-
-if __name__ == "__main__":
-    main()
-```
-
-### Step 10: Commit
-
-```bash
-cd /Users/phillachmann/src/chordfinder
-git add worker/
-git commit -m "feat: add Python chord detection and section segmentation worker"
-```
-
----
-
-## Task 6: Go API — Chord Worker Integration
-
-**Files:**
-- Create: `api/internal/chords/worker.go`
-- Create: `api/internal/chords/worker_test.go`
-- Modify: `api/internal/transport/hub.go`
-
-### Step 1: Write failing test
+### Step 2: Write failing detector test
 
 ```go
-// api/internal/chords/worker_test.go
+// api/internal/chords/detector_test.go
 package chords_test
 
 import (
-    "encoding/binary"
+    "math"
     "testing"
 
     "github.com/chordfinder/api/internal/chords"
 )
 
-func TestWorkerStartStop(t *testing.T) {
-    w, err := chords.NewWorker("python3", "../../worker/main.py")
-    if err != nil {
-        t.Fatalf("failed to start worker: %v", err)
+func makeSine(freqHz, durationS float64, sr int) []float32 {
+    n := int(durationS * float64(sr))
+    samples := make([]float32, n)
+    for i := range samples {
+        samples[i] = float32(math.Sin(2 * math.Pi * freqHz * float64(i) / float64(sr)))
     }
-    defer w.Stop()
+    return samples
+}
 
-    if !w.Ready() {
-        t.Error("expected worker to be ready")
+func TestDetectChordReturnsSomething(t *testing.T) {
+    audio := makeSine(440.0, 1.0, 16000) // A4
+    result := chords.DetectChord(audio, 16000)
+    if result.Name == "" {
+        t.Error("expected a chord name")
+    }
+    if result.Confidence == "" {
+        t.Error("expected a confidence level")
     }
 }
 
-func TestWorkerSendAudio(t *testing.T) {
-    w, err := chords.NewWorker("python3", "../../worker/main.py")
-    if err != nil {
-        t.Fatalf("failed to start worker: %v", err)
+func TestDetectChordSilenceReturnsUnknown(t *testing.T) {
+    silence := make([]float32, 16000)
+    result := chords.DetectChord(silence, 16000)
+    if result.Name != "?" {
+        t.Errorf("expected '?' for silence, got %s", result.Name)
     }
-    defer w.Stop()
+}
 
-    // Send silence (zero PCM)
-    silence := make([]byte, 16000*2) // 1 second, 16-bit
-    err = w.SendAudio(silence)
-    if err != nil {
-        t.Errorf("unexpected error sending audio: %v", err)
+func TestConfidenceIsValid(t *testing.T) {
+    audio := makeSine(261.63, 1.0, 16000) // C4
+    result := chords.DetectChord(audio, 16000)
+    valid := map[string]bool{"high": true, "medium": true, "low": true}
+    if !valid[result.Confidence] {
+        t.Errorf("unexpected confidence: %s", result.Confidence)
     }
 }
 ```
 
-### Step 2: Run — verify it fails
+### Step 3: Run test — verify it fails
 
 ```bash
-cd api && go test ./internal/chords/... -v
-# Expected: FAIL
+cd api && go test ./internal/chords/... -run TestDetect -v
+# Expected: FAIL — chords.DetectChord not defined
 ```
 
-### Step 3: Implement chords/worker.go
+### Step 4: Implement detector.go
 
 ```go
-// api/internal/chords/worker.go
+// api/internal/chords/detector.go
 package chords
 
 import (
-    "bufio"
-    "encoding/json"
-    "fmt"
-    "io"
-    "log"
-    "os/exec"
-    "strings"
-    "sync"
+    "math"
+    "math/cmplx"
+
+    "github.com/mjibson/go-dsp/fft"
 )
 
-type Event struct {
-    Type       string   `json:"type"`
-    Section    string   `json:"section,omitempty"`
-    Chords     []string `json:"chords,omitempty"`
-    Confidence string   `json:"confidence,omitempty"`
-    State      string   `json:"state,omitempty"`
-    Message    string   `json:"message,omitempty"`
+// DetectionResult holds a chord name and confidence level.
+type DetectionResult struct {
+    Name       string
+    Confidence string // "high", "medium", "low"
 }
 
-type Worker struct {
-    cmd     *exec.Cmd
-    stdin   io.WriteCloser
-    ready   bool
-    mu      sync.Mutex
-    Events  chan Event
+var chordTemplates map[string][12]float64
+
+func init() {
+    chordTemplates = buildTemplates()
 }
 
-func NewWorker(pythonBin, scriptPath string) (*Worker, error) {
-    cmd := exec.Command(pythonBin, scriptPath)
-    stdin, err := cmd.StdinPipe()
-    if err != nil {
-        return nil, err
-    }
-    stdout, err := cmd.StdoutPipe()
-    if err != nil {
-        return nil, err
-    }
-    if err := cmd.Start(); err != nil {
-        return nil, err
-    }
-
-    w := &Worker{
-        cmd:    cmd,
-        stdin:  stdin,
-        Events: make(chan Event, 64),
+func buildTemplates() map[string][12]float64 {
+    notes := []string{"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"}
+    types := []struct {
+        suffix    string
+        intervals []int
+    }{
+        {"", []int{0, 4, 7}},
+        {"m", []int{0, 3, 7}},
+        {"7", []int{0, 4, 7, 10}},
+        {"maj7", []int{0, 4, 7, 11}},
+        {"m7", []int{0, 3, 7, 10}},
     }
 
-    // Read events from worker stdout
-    go func() {
-        scanner := bufio.NewScanner(stdout)
-        for scanner.Scan() {
-            line := scanner.Text()
-            var evt Event
-            if err := json.Unmarshal([]byte(line), &evt); err != nil {
-                log.Printf("worker parse error: %v — %s", err, line)
-                continue
+    templates := make(map[string][12]float64)
+    for rootIdx, root := range notes {
+        for _, ct := range types {
+            var chroma [12]float64
+            for _, interval := range ct.intervals {
+                chroma[(rootIdx+interval)%12] = 1.0
             }
-            if evt.Type == "status" && evt.State == "ready" {
-                w.mu.Lock()
-                w.ready = true
-                w.mu.Unlock()
+            norm := l2Norm(chroma)
+            if norm > 0 {
+                for i := range chroma {
+                    chroma[i] /= norm
+                }
             }
-            w.Events <- evt
+            templates[root+ct.suffix] = chroma
         }
-        close(w.Events)
-    }()
-
-    return w, nil
+    }
+    return templates
 }
 
-func (w *Worker) Ready() bool {
-    w.mu.Lock()
-    defer w.mu.Unlock()
-    return w.ready
+// DetectChord detects the most likely chord in a PCM audio buffer.
+// audio: mono float32 samples, sr: sample rate in Hz.
+func DetectChord(audio []float32, sr int) DetectionResult {
+    if rms(audio) < 0.001 {
+        return DetectionResult{Name: "?", Confidence: "low"}
+    }
+
+    chroma := computeChroma(audio, sr)
+    norm := l2Norm(chroma)
+    if norm < 1e-6 {
+        return DetectionResult{Name: "?", Confidence: "low"}
+    }
+    for i := range chroma {
+        chroma[i] /= norm
+    }
+
+    bestName := "?"
+    bestScore := -1.0
+    for name, template := range chordTemplates {
+        score := dot(chroma, template)
+        if score > bestScore {
+            bestScore = score
+            bestName = name
+        }
+    }
+
+    var confidence string
+    switch {
+    case bestScore > 0.85:
+        confidence = "high"
+    case bestScore > 0.70:
+        confidence = "medium"
+    default:
+        confidence = "low"
+    }
+    return DetectionResult{Name: bestName, Confidence: confidence}
 }
 
-func (w *Worker) SendAudio(pcmBytes []byte) error {
-    hex := fmt.Sprintf("%x\n", pcmBytes)
-    _, err := fmt.Fprint(w.stdin, hex)
-    return err
+// computeChroma builds a 12-bin chromagram from the audio using FFT.
+func computeChroma(audio []float32, sr int) [12]float64 {
+    // Convert to float64 for FFT
+    in := make([]float64, len(audio))
+    for i, v := range audio {
+        in[i] = float64(v)
+    }
+
+    spectrum := fft.FFTReal(in)
+    n := len(spectrum)
+    freqRes := float64(sr) / float64(len(in))
+
+    var chroma [12]float64
+    for k := 1; k < n/2; k++ {
+        freq := float64(k) * freqRes
+        if freq < 27.5 || freq > 4186 { // piano range A0–C8
+            continue
+        }
+        magnitude := cmplx.Abs(spectrum[k])
+        // Map frequency to chroma bin (pitch class)
+        // MIDI note: 12 * log2(f/440) + 69
+        midi := 12*math.Log2(freq/440.0) + 69
+        bin := int(math.Round(midi)) % 12
+        if bin < 0 {
+            bin += 12
+        }
+        chroma[bin] += magnitude
+    }
+    return chroma
 }
 
-func (w *Worker) Stop() {
-    w.stdin.Close()
-    w.cmd.Wait()
+func rms(samples []float32) float64 {
+    var sum float64
+    for _, v := range samples {
+        sum += float64(v) * float64(v)
+    }
+    return math.Sqrt(sum / float64(len(samples)))
+}
+
+func l2Norm(v [12]float64) float64 {
+    var sum float64
+    for _, x := range v {
+        sum += x * x
+    }
+    return math.Sqrt(sum)
+}
+
+func dot(a, b [12]float64) float64 {
+    var sum float64
+    for i := range a {
+        sum += a[i] * b[i]
+    }
+    return sum
 }
 ```
 
-### Step 4: Run tests
+### Step 5: Run tests — verify pass
 
 ```bash
-cd api && go test ./internal/chords/... -v
+cd api && go test ./internal/chords/... -run TestDetect -v
 # Expected: PASS
 ```
 
-### Step 5: Wire worker into WebSocket hub
-
-In `api/internal/transport/hub.go`, update the binary message reader goroutine:
+### Step 6: Write failing section detector test
 
 ```go
-// Replace the TODO in ServeStream's reader goroutine:
-// You'll need to pass a *chords.Worker into Handler or create one per session.
-// Add to Handler struct:
-//   workers map[string]*chords.Worker
-// In CreateSession, start a new worker for each session.
-// In ServeStream reader loop:
-if msgType == websocket.BinaryMessage {
-    if err := h.workers[sessionID].SendAudio(data); err != nil {
-        log.Printf("worker send error: %v", err)
+// api/internal/chords/sections_test.go
+package chords_test
+
+import (
+    "testing"
+
+    "github.com/chordfinder/api/internal/chords"
+)
+
+func TestSectionDetectorAccumulates(t *testing.T) {
+    sd := chords.NewSectionDetector()
+    for i := 0; i < 10; i++ {
+        sd.AddChord("C", "high")
+        sd.AddChord("G", "high")
+    }
+    sections := sd.GetSections()
+    if len(sections) == 0 {
+        t.Error("expected at least one section")
     }
 }
 
-// Add event relay goroutine in ServeStream:
-go func() {
-    for evt := range h.workers[sessionID].Events {
-        c.send <- WSEvent{
-            Type:       evt.Type,
-            Section:    evt.Section,
-            Chords:     evt.Chords,
-            Confidence: evt.Confidence,
-            State:      evt.State,
+func TestSectionDetectorLabelFormat(t *testing.T) {
+    sd := chords.NewSectionDetector()
+    for _, c := range []string{"Am", "F", "C", "G", "Am", "F", "C", "G"} {
+        sd.AddChord(c, "high")
+    }
+    sections := sd.GetSections()
+    if len(sections) == 0 {
+        t.Fatal("expected sections")
+    }
+    if sections[0].Label == "" {
+        t.Error("expected non-empty label")
+    }
+    if len(sections[0].Chords) == 0 {
+        t.Error("expected chords in section")
+    }
+}
+
+func TestSectionDetectorIgnoresLowConfidenceUnknown(t *testing.T) {
+    sd := chords.NewSectionDetector()
+    for i := 0; i < 5; i++ {
+        sd.AddChord("?", "low")
+    }
+    for _, c := range []string{"C", "G", "Am", "F", "C", "G", "Am", "F"} {
+        sd.AddChord(c, "high")
+    }
+    sections := sd.GetSections()
+    for _, s := range sections {
+        for _, chord := range s.Chords {
+            if chord == "?" {
+                t.Error("unknown chord should not appear in sections")
+            }
         }
     }
-}()
+}
 ```
 
-### Step 6: Integration smoke test
+### Step 7: Run test — verify it fails
 
 ```bash
-cd api && go run main.go &
-# In another terminal:
-SESSION=$(curl -s -X POST http://localhost:8080/sessions | jq -r .session_id)
-echo "Session: $SESSION"
-# Use wscat or a small Go test to connect and send audio
-kill %1
+cd api && go test ./internal/chords/... -run TestSection -v
+# Expected: FAIL
 ```
 
-### Step 7: Commit
+### Step 8: Implement sections.go
+
+```go
+// api/internal/chords/sections.go
+package chords
+
+const sectionWindow = 8
+
+// Section represents a detected song section.
+type Section struct {
+    Label  string
+    Chords []string
+}
+
+// SectionDetector accumulates chords and groups them into labeled sections.
+type SectionDetector struct {
+    chords []string
+}
+
+func NewSectionDetector() *SectionDetector {
+    return &SectionDetector{}
+}
+
+func (sd *SectionDetector) AddChord(name, confidence string) {
+    if name == "?" && confidence == "low" {
+        return
+    }
+    sd.chords = append(sd.chords, name)
+}
+
+func (sd *SectionDetector) GetSections() []Section {
+    if len(sd.chords) == 0 {
+        return nil
+    }
+
+    seen := map[string]string{}
+    var sections []Section
+    labelIdx := 0
+
+    for i := 0; i < len(sd.chords); i += sectionWindow {
+        end := i + sectionWindow
+        if end > len(sd.chords) {
+            end = len(sd.chords)
+        }
+        chunk := sd.chords[i:end]
+        key := joinChords(chunk)
+
+        label, ok := seen[key]
+        if !ok {
+            label = "Section " + string(rune('A'+labelIdx))
+            seen[key] = label
+            labelIdx++
+        }
+        if len(sections) > 0 && sections[len(sections)-1].Label == label {
+            continue
+        }
+        sections = append(sections, Section{
+            Label:  label,
+            Chords: unique(chunk),
+        })
+    }
+    return sections
+}
+
+func joinChords(chords []string) string {
+    result := ""
+    for i, c := range chords {
+        if i > 0 {
+            result += ","
+        }
+        result += c
+    }
+    return result
+}
+
+func unique(chords []string) []string {
+    seen := map[string]bool{}
+    var result []string
+    for _, c := range chords {
+        if !seen[c] {
+            seen[c] = true
+            result = append(result, c)
+        }
+    }
+    return result
+}
+```
+
+### Step 9: Wire detector into WebSocket hub
+
+In `api/internal/transport/hub.go`, update `ServeStream` to process audio:
+
+```go
+// In the reader goroutine, replace the TODO with:
+detector := chords.NewSectionDetector()
+// buffer for accumulating PCM samples
+var pcmBuf []float32
+const chunkSamples = 4000 // 250ms at 16kHz
+
+if msgType == websocket.BinaryMessage {
+    // data is raw 16-bit PCM, little-endian
+    for i := 0; i+1 < len(data); i += 2 {
+        sample := int16(data[i]) | int16(data[i+1])<<8
+        pcmBuf = append(pcmBuf, float32(sample)/32768.0)
+    }
+    for len(pcmBuf) >= chunkSamples {
+        chunk := pcmBuf[:chunkSamples]
+        pcmBuf = pcmBuf[chunkSamples:]
+        result := chords.DetectChord(chunk, 16000)
+        detector.AddChord(result.Name, result.Confidence)
+        sections := detector.GetSections()
+        if len(sections) > 0 {
+            latest := sections[len(sections)-1]
+            c.send <- WSEvent{
+                Type:       "chord_update",
+                Section:    latest.Label,
+                Chords:     latest.Chords,
+                Confidence: result.Confidence,
+            }
+        }
+    }
+}
+```
+
+### Step 10: Run all chords tests
+
+```bash
+cd api && go test ./internal/chords/... -v && go build ./...
+# Expected: all PASS, build succeeds
+```
+
+### Step 11: Commit
 
 ```bash
 git add api/
-git commit -m "feat: integrate Python chord worker into Go WebSocket hub"
+git commit -m "feat: add Go-native chord detection engine (FFT chroma + template matching + section segmentation)"
 ```
+
+---
+
+## Task 6 (removed — merged into Task 5)
 
 ---
 
