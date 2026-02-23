@@ -1,8 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { View, Text, Pressable, StyleSheet } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { InstrumentPicker } from "../components/InstrumentPicker";
+import { ListenOrb } from "../components/ListenOrb";
 import { useInstrument } from "../hooks/useInstrument";
+import { colors } from "../theme";
 
 type Props = { navigation: NativeStackNavigationProp<any> };
 
@@ -11,21 +13,25 @@ export function HomeScreen({ navigation }: Props) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>ChordFinder</Text>
-      <Text style={styles.subtitle}>Identify chord progressions in real time</Text>
+      <View style={styles.header}>
+        <Text style={styles.title}>ChordFinder</Text>
+        <Text style={styles.subtitle}>Identify chord progressions in real time</Text>
+      </View>
+
       <InstrumentPicker selected={instrument} onSelect={setInstrument} />
-      <Pressable
-        style={styles.listenButton}
-        onPress={() => navigation.navigate("Listening", { instrument })}
-      >
-        <Text style={styles.listenText}>Listen</Text>
-      </Pressable>
-      <Pressable
-        style={styles.demoButton}
-        onPress={() => navigation.navigate("Listening", { instrument, demo: true })}
-      >
-        <Text style={styles.demoText}>Demo</Text>
-      </Pressable>
+
+      <View style={styles.orbArea}>
+        <ListenOrb
+          state="idle"
+          onPress={() => navigation.navigate("Listening", { instrument })}
+        />
+        <Pressable
+          onPress={() => navigation.navigate("Listening", { instrument, demo: true })}
+          style={styles.demoLink}
+        >
+          <Text style={styles.demoText}>Try a demo →</Text>
+        </Pressable>
+      </View>
     </View>
   );
 }
@@ -33,35 +39,37 @@ export function HomeScreen({ navigation }: Props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#0f0f0f",
-    padding: 24,
+    backgroundColor: colors.background,
+    paddingHorizontal: 24,
+    paddingTop: 80,
+    paddingBottom: 40,
   },
-  title: { fontSize: 36, fontWeight: "800", color: "#fff", marginBottom: 8 },
+  header: { alignItems: "center", marginBottom: 40 },
+  title: {
+    fontSize: 38,
+    fontWeight: "800",
+    color: colors.textPrimary,
+    letterSpacing: -0.5,
+    textShadowColor: colors.accent,
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 16,
+    marginBottom: 8,
+  },
   subtitle: {
     fontSize: 14,
-    color: "#666",
-    marginBottom: 40,
+    color: colors.textSecondary,
     textAlign: "center",
   },
-  listenButton: {
-    marginTop: 40,
-    width: 160,
-    height: 160,
-    borderRadius: 80,
-    backgroundColor: "#6c47ff",
+  orbArea: {
+    flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    gap: 24,
   },
-  listenText: { fontSize: 22, fontWeight: "700", color: "#fff" },
-  demoButton: {
-    marginTop: 16,
-    paddingVertical: 10,
-    paddingHorizontal: 32,
-    borderRadius: 20,
-    borderWidth: 1,
-    borderColor: "#6c47ff88",
+  demoLink: { paddingVertical: 8 },
+  demoText: {
+    color: colors.textSecondary,
+    fontSize: 14,
+    fontWeight: "500",
   },
-  demoText: { fontSize: 14, color: "#6c47ffcc", fontWeight: "600" },
 });
