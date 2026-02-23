@@ -1,0 +1,16 @@
+{
+  "planPath": "docs/plans/2026-02-22-ui-redesign.md",
+  "tasks": [
+    {"id": 1, "subject": "Task 1: Create design tokens file", "status": "pending"},
+    {"id": 2, "subject": "Task 2: Build GlassCard component", "status": "pending", "blockedBy": [1]},
+    {"id": 3, "subject": "Task 3: Build ChordChip component", "status": "pending", "blockedBy": [1]},
+    {"id": 4, "subject": "Task 4: Build ListenOrb component", "status": "pending", "blockedBy": [1]},
+    {"id": 5, "subject": "Task 5: Restyle InstrumentPicker", "status": "pending", "blockedBy": [1, 2]},
+    {"id": 6, "subject": "Task 6: Redesign Home Screen", "status": "pending", "blockedBy": [4, 5]},
+    {"id": 9, "subject": "Task 7: Build BottomSheet component", "status": "pending", "blockedBy": [2]},
+    {"id": 7, "subject": "Task 8: Redesign Listening Screen", "status": "pending", "blockedBy": [3, 4, 5]},
+    {"id": 8, "subject": "Task 9: Redesign Results Screen", "status": "pending", "blockedBy": [2, 3, 9]},
+    {"id": 10, "subject": "Task 10: Final verification and push", "status": "pending", "blockedBy": [6, 7, 8]}
+  ],
+  "lastUpdated": "2026-02-22T00:00:00Z"
+}

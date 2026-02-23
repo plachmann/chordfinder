@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   View,
   Text,
@@ -10,75 +10,112 @@ import {
 import { useListeningSession } from "../hooks/useListeningSession";
 import { useInstrument } from "../hooks/useInstrument";
 import { InstrumentPicker } from "../components/InstrumentPicker";
+import { ListenOrb } from "../components/ListenOrb";
+import { colors } from "../theme";
+import { Section } from "../types/api";
+
+type OrbState = "idle" | "listening" | "detected";
+
+function AnimatedFeedItem({ item, index }: { item: Section; index: number }) {
+  const anim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.timing(anim, {
+      toValue: 1,
+      duration: 300,
+      useNativeDriver: true,
+    }).start();
+  }, []);
+
+  const opacity = anim.interpolate({ inputRange: [0, 1], outputRange: [0, index === 0 ? 1 : 0.5] });
+  const translateY = anim.interpolate({ inputRange: [0, 1], outputRange: [20, 0] });
+
+  return (
+    <Animated.View style={[styles.feedItem, { opacity, transform: [{ translateY }] }]}>
+      <Text style={styles.feedLabel}>{item.label}</Text>
+      <Text style={styles.feedChords}>{item.chords.join("  →  ")}</Text>
+    </Animated.View>
+  );
+}
 
 export function ListeningScreen({ navigation, route }: any) {
   const demo: boolean = route?.params?.demo ?? false;
   const { state, start, startDemo, stop } = useListeningSession();
   const { instrument, setInstrument } = useInstrument();
-  const pulse = useRef(new Animated.Value(1)).current;
+  const [orbState, setOrbState] = useState<OrbState>("listening");
+  const [banner, setBanner] = useState<string | null>(null);
+  const bannerTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const prevSectionCount = useRef(0);
 
   useEffect(() => {
     demo ? startDemo() : start();
-    const anim = Animated.loop(
-      Animated.sequence([
-        Animated.timing(pulse, {
-          toValue: 1.2,
-          duration: 800,
-          useNativeDriver: true,
-        }),
-        Animated.timing(pulse, {
-          toValue: 1,
-          duration: 800,
-          useNativeDriver: true,
-        }),
-      ])
-    );
-    anim.start();
-    return () => {
-      anim.stop();
-      stop();
-    };
   }, [demo]);
+
+  // Flash orb on new chord detection
+  useEffect(() => {
+    if (state.sections.length > prevSectionCount.current) {
+      prevSectionCount.current = state.sections.length;
+      setOrbState("detected");
+      const t = setTimeout(() => setOrbState("listening"), 600);
+      return () => clearTimeout(t);
+    }
+  }, [state.sections]);
+
+  // Show toast banners
+  useEffect(() => {
+    if (state.status === "no_signal") showBanner("No music detected — make sure music is playing");
+    else if (state.status === "error") showBanner("Connection lost. Reconnecting...");
+  }, [state.status]);
+
+  function showBanner(msg: string) {
+    setBanner(msg);
+    if (bannerTimer.current) clearTimeout(bannerTimer.current);
+    bannerTimer.current = setTimeout(() => setBanner(null), 4000);
+  }
 
   const handleStop = async () => {
     await stop();
     navigation.navigate("Results", { sections: state.sections, instrument });
   };
 
+  const reversedSections = [...state.sections].reverse();
+
   return (
     <View style={styles.container}>
-      <InstrumentPicker selected={instrument} onSelect={setInstrument} />
-      {state.status === "no_signal" && (
+      {/* Top bar */}
+      <View style={styles.topBar}>
+        <Pressable onPress={handleStop} style={styles.closeButton}>
+          <Text style={styles.closeIcon}>✕</Text>
+        </Pressable>
+        <InstrumentPicker selected={instrument} onSelect={setInstrument} />
+      </View>
+
+      {/* Toast banner */}
+      {banner && (
         <View style={styles.banner}>
-          <Text style={styles.bannerText}>
-            No music detected — make sure music is playing
-          </Text>
+          <Text style={styles.bannerText}>{banner}</Text>
         </View>
       )}
-      {state.status === "error" && (
-        <View style={[styles.banner, styles.bannerError]}>
-          <Text style={styles.bannerText}>Connection lost. Reconnecting...</Text>
-        </View>
-      )}
-      <Animated.View
-        style={[styles.pulseRing, { transform: [{ scale: pulse }] }]}
-      />
-      <Text style={styles.status}>
-        {state.status === "listening" ? "Listening..." : state.status}
-      </Text>
+
+      {/* Orb */}
+      <View style={styles.orbContainer}>
+        <ListenOrb state={orbState} />
+      </View>
+
+      {/* Chord feed */}
       <FlatList
-        data={state.sections}
+        data={reversedSections}
         keyExtractor={(s) => s.label}
-        style={styles.list}
-        renderItem={({ item }) => (
-          <View style={styles.sectionCard}>
-            <Text style={styles.sectionLabel}>{item.label}</Text>
-            <Text style={styles.chords}>{item.chords.join("  →  ")}</Text>
-          </View>
+        style={styles.feed}
+        contentContainerStyle={styles.feedContent}
+        renderItem={({ item, index }) => (
+          <AnimatedFeedItem item={item} index={index} />
         )}
       />
-      <Pressable style={styles.stopButton} onPress={handleStop}>
-        <Text style={styles.stopText}>Stop</Text>
+
+      {/* Stop pill */}
+      <Pressable style={styles.stopPill} onPress={handleStop}>
+        <Text style={styles.stopText}>■  Stop & View Results</Text>
       </Pressable>
     </View>
   );
@@ -87,49 +124,67 @@ export function ListeningScreen({ navigation, route }: any) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0f0f0f",
-    paddingTop: 60,
+    backgroundColor: colors.background,
+    paddingTop: 56,
+  },
+  topBar: {
+    flexDirection: "row",
+    alignItems: "center",
     paddingHorizontal: 16,
+    gap: 12,
+    marginBottom: 8,
   },
+  closeButton: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.surfaceBorder,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  closeIcon: { color: colors.textSecondary, fontSize: 14 },
   banner: {
-    backgroundColor: "#4a3a00",
-    borderRadius: 8,
-    padding: 10,
-    marginVertical: 8,
-  },
-  bannerError: { backgroundColor: "#4a0000" },
-  bannerText: { color: "#ffcc00", fontSize: 13, textAlign: "center" },
-  pulseRing: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: "#6c47ff33",
-    alignSelf: "center",
-    marginVertical: 20,
-  },
-  status: { color: "#888", textAlign: "center", marginBottom: 16, fontSize: 14 },
-  list: { flex: 1 },
-  sectionCard: {
-    backgroundColor: "#1a1a1a",
+    marginHorizontal: 16,
+    marginBottom: 8,
+    backgroundColor: "rgba(120,90,0,0.85)",
     borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+  },
+  bannerText: { color: "#ffcc00", fontSize: 13, textAlign: "center" },
+  orbContainer: {
+    alignItems: "center",
+    paddingVertical: 16,
+  },
+  feed: { flex: 1 },
+  feedContent: { paddingHorizontal: 16, paddingBottom: 8 },
+  feedItem: {
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.surfaceBorder,
+    borderRadius: 14,
     padding: 14,
     marginBottom: 10,
   },
-  sectionLabel: {
-    color: "#6c47ff",
-    fontWeight: "700",
-    fontSize: 13,
+  feedLabel: {
+    color: colors.accent,
+    fontWeight: "600",
+    fontSize: 11,
     textTransform: "uppercase",
-    letterSpacing: 1,
+    letterSpacing: 1.5,
     marginBottom: 6,
   },
-  chords: { color: "#fff", fontSize: 16, fontWeight: "500" },
-  stopButton: {
-    backgroundColor: "#c0392b",
-    borderRadius: 10,
-    padding: 16,
+  feedChords: { color: colors.textPrimary, fontSize: 16, fontWeight: "500" },
+  stopPill: {
+    margin: 16,
+    paddingVertical: 14,
+    borderRadius: 14,
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.surfaceBorder,
     alignItems: "center",
-    marginVertical: 16,
   },
-  stopText: { color: "#fff", fontWeight: "700", fontSize: 16 },
+  stopText: { color: colors.textSecondary, fontSize: 14, fontWeight: "600" },
 });
