@@ -5,65 +5,67 @@ import {
   StyleSheet,
   FlatList,
   Pressable,
-  Modal,
 } from "react-native";
 import { Section, Instrument } from "../types/api";
 import { ChordDiagram } from "../components/ChordDiagram";
+import { GlassCard } from "../components/GlassCard";
+import { ChordChip } from "../components/ChordChip";
+import { BottomSheet } from "../components/BottomSheet";
+import { colors } from "../theme";
 
 export function ResultsScreen({ route, navigation }: any) {
-  const { sections, instrument } = route.params;
+  const { sections, instrument }: { sections: Section[]; instrument: Instrument } = route.params;
   const [selectedChord, setSelectedChord] = useState<string | null>(null);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Results</Text>
+      {/* Header */}
+      <View style={styles.header}>
+        <Text style={styles.title}>Results</Text>
+        <Pressable onPress={() => navigation.navigate("Home")}>
+          <Text style={styles.newSession}>New Session</Text>
+        </Pressable>
+      </View>
+
       {sections.length === 0 ? (
-        <Text style={styles.empty}>No chords detected.</Text>
+        <View style={styles.emptyState}>
+          <Text style={styles.emptyText}>
+            Nothing detected.{"\n"}Try again in a quieter environment.
+          </Text>
+        </View>
       ) : (
         <FlatList
           data={sections}
           keyExtractor={(s) => s.label}
           contentContainerStyle={styles.list}
           renderItem={({ item }) => (
-            <View style={styles.sectionCard}>
+            <GlassCard style={styles.card}>
               <Text style={styles.sectionLabel}>{item.label}</Text>
               <View style={styles.chordRow}>
                 {item.chords.map((chord: string, i: number) => (
-                  <Pressable
+                  <ChordChip
                     key={i}
-                    style={styles.chordChip}
+                    label={chord}
                     onPress={() => setSelectedChord(chord)}
-                  >
-                    <Text style={styles.chordChipText}>{chord}</Text>
-                  </Pressable>
+                  />
                 ))}
               </View>
-            </View>
+            </GlassCard>
           )}
         />
       )}
 
-      <Pressable style={styles.backButton} onPress={() => navigation.navigate("Home")}>
-        <Text style={styles.backText}>New Session</Text>
-      </Pressable>
-
-      <Modal
+      <BottomSheet
         visible={!!selectedChord}
-        transparent
-        animationType="slide"
-        onRequestClose={() => setSelectedChord(null)}
+        onClose={() => setSelectedChord(null)}
       >
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalContent}>
-            {selectedChord && (
-              <ChordDiagram chordName={selectedChord} instrument={instrument} />
-            )}
-            <Pressable style={styles.closeButton} onPress={() => setSelectedChord(null)}>
-              <Text style={styles.closeText}>Close</Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
+        {selectedChord && (
+          <>
+            <Text style={styles.chordTitle}>{selectedChord}</Text>
+            <ChordDiagram chordName={selectedChord} instrument={instrument} />
+          </>
+        )}
+      </BottomSheet>
     </View>
   );
 }
@@ -71,68 +73,52 @@ export function ResultsScreen({ route, navigation }: any) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0f0f0f",
+    backgroundColor: colors.background,
     paddingTop: 60,
-    paddingHorizontal: 16,
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
+    marginBottom: 24,
   },
   title: {
-    color: "#fff",
-    fontSize: 28,
+    color: colors.textPrimary,
+    fontSize: 30,
     fontWeight: "800",
-    marginBottom: 20,
+    letterSpacing: -0.5,
   },
-  empty: { color: "#666", textAlign: "center", marginTop: 40, fontSize: 16 },
-  list: { paddingBottom: 20 },
-  sectionCard: {
-    backgroundColor: "#1a1a1a",
-    borderRadius: 10,
-    padding: 14,
+  newSession: {
+    color: colors.accent,
+    fontSize: 14,
+    fontWeight: "600",
+  },
+  list: { paddingHorizontal: 16, paddingBottom: 40 },
+  card: {
+    padding: 16,
     marginBottom: 12,
   },
   sectionLabel: {
-    color: "#6c47ff",
-    fontWeight: "700",
-    fontSize: 13,
+    color: colors.accent,
+    fontWeight: "600",
+    fontSize: 11,
     textTransform: "uppercase",
-    letterSpacing: 1,
-    marginBottom: 10,
+    letterSpacing: 1.5,
+    marginBottom: 12,
   },
   chordRow: { flexDirection: "row", flexWrap: "wrap", gap: 8 },
-  chordChip: {
-    backgroundColor: "#2a2a2a",
-    borderRadius: 6,
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderWidth: 1,
-    borderColor: "#6c47ff44",
+  emptyState: { flex: 1, alignItems: "center", justifyContent: "center" },
+  emptyText: {
+    color: colors.textSecondary,
+    fontSize: 16,
+    textAlign: "center",
+    lineHeight: 26,
   },
-  chordChipText: { color: "#fff", fontSize: 15, fontWeight: "500" },
-  backButton: {
-    backgroundColor: "#6c47ff",
-    borderRadius: 10,
-    padding: 16,
-    alignItems: "center",
-    marginVertical: 16,
+  chordTitle: {
+    color: colors.textPrimary,
+    fontSize: 28,
+    fontWeight: "800",
+    marginBottom: 24,
   },
-  backText: { color: "#fff", fontWeight: "700", fontSize: 16 },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: "#000000cc",
-    justifyContent: "flex-end",
-  },
-  modalContent: {
-    backgroundColor: "#1a1a1a",
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    padding: 24,
-    alignItems: "center",
-  },
-  closeButton: {
-    marginTop: 20,
-    paddingVertical: 12,
-    paddingHorizontal: 40,
-    backgroundColor: "#2a2a2a",
-    borderRadius: 8,
-  },
-  closeText: { color: "#aaa", fontSize: 15 },
 });
