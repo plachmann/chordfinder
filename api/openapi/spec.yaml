@@ -1,0 +1,220 @@
+openapi: 3.1.0
+info:
+  title: ChordFinder API
+  version: 1.0.0
+  description: >
+    Real-time chord progression detection API. Clients create a session,
+    open a WebSocket stream, send raw PCM audio, and receive chord events.
+
+servers:
+  - url: http://localhost:8080
+    description: Local development
+
+paths:
+  /health:
+    get:
+      summary: Health check
+      operationId: getHealth
+      responses:
+        "200":
+          description: Service is up
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: ok
+
+  /sessions:
+    post:
+      summary: Create a listening session
+      operationId: createSession
+      responses:
+        "201":
+          description: Session created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SessionCreated"
+
+  /sessions/{sessionID}:
+    delete:
+      summary: End a listening session
+      operationId: deleteSession
+      parameters:
+        - $ref: "#/components/parameters/sessionID"
+      responses:
+        "204":
+          description: Session deleted
+        "404":
+          description: Session not found
+
+  /sessions/{sessionID}/stream:
+    get:
+      summary: Open WebSocket stream for audio and chord events
+      operationId: streamSession
+      description: >
+        Upgrade to WebSocket. After connecting:
+
+        - **Client → Server**: binary frames containing raw 16-bit PCM audio
+          (mono, 16 kHz, little-endian). Send in ~250 ms chunks (4000 samples).
+
+        - **Server → Client**: JSON text frames (`WSEvent`).
+      parameters:
+        - $ref: "#/components/parameters/sessionID"
+      responses:
+        "101":
+          description: Switching Protocols (WebSocket upgrade)
+        "404":
+          description: Session not found
+
+  /chords/{chordName}:
+    get:
+      summary: Get voicing data for a chord
+      operationId: getChord
+      parameters:
+        - name: chordName
+          in: path
+          required: true
+          schema:
+            type: string
+            example: Cmaj7
+      responses:
+        "200":
+          description: Chord voicing
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChordVoicing"
+        "404":
+          description: Chord not found
+
+components:
+  parameters:
+    sessionID:
+      name: sessionID
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  schemas:
+    SessionCreated:
+      type: object
+      required: [session_id, websocket_url]
+      properties:
+        session_id:
+          type: string
+          format: uuid
+          example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+        websocket_url:
+          type: string
+          format: uri
+          example: ws://localhost:8080/sessions/3fa85f64-5717-4562-b3fc-2c963f66afa6/stream
+
+    WSEvent:
+      type: object
+      required: [type]
+      discriminator:
+        propertyName: type
+      properties:
+        type:
+          type: string
+          enum: [status, chord_update]
+      oneOf:
+        - $ref: "#/components/schemas/StatusEvent"
+        - $ref: "#/components/schemas/ChordUpdateEvent"
+
+    StatusEvent:
+      type: object
+      required: [type, state]
+      properties:
+        type:
+          type: string
+          enum: [status]
+        state:
+          type: string
+          enum: [listening, no_signal, error, complete]
+
+    ChordUpdateEvent:
+      type: object
+      required: [type, section, chords]
+      properties:
+        type:
+          type: string
+          enum: [chord_update]
+        section:
+          type: string
+          description: Section label e.g. "Section A"
+          example: Section A
+        chords:
+          type: array
+          items:
+            type: string
+          example: [C, Am, F, G]
+        confidence:
+          type: string
+          enum: [high, medium, low]
+
+    ChordVoicing:
+      type: object
+      required: [name, display_name, instruments]
+      properties:
+        name:
+          type: string
+          example: C
+        display_name:
+          type: string
+          example: C Major
+        instruments:
+          type: object
+          properties:
+            guitar:
+              $ref: "#/components/schemas/StringedVoicing"
+            banjo:
+              $ref: "#/components/schemas/StringedVoicing"
+            mandolin:
+              $ref: "#/components/schemas/StringedVoicing"
+            piano:
+              $ref: "#/components/schemas/PianoVoicing"
+
+    StringedVoicing:
+      type: object
+      required: [frets]
+      properties:
+        frets:
+          type: array
+          items:
+            type: integer
+            description: Fret number (-1 = muted, 0 = open)
+          example: [-1, 3, 2, 0, 1, 0]
+        fingers:
+          type: array
+          items:
+            type: integer
+          example: [0, 3, 2, 0, 1, 0]
+        position:
+          type: integer
+          description: Capo / position offset (0 = open position)
+          example: 0
+        barre:
+          type: object
+          nullable: true
+          properties:
+            fret:
+              type: integer
+            strings:
+              type: array
+              items:
+                type: integer
+
+    PianoVoicing:
+      type: object
+      required: [keys]
+      properties:
+        keys:
+          type: array
+          items:
+            type: string
+          description: Note names with octave e.g. C4, E4, G4
+          example: [C4, E4, G4]
