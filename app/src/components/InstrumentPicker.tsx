@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { Instrument } from "../types/api";
+import { colors, glass } from "../theme";
 
 const INSTRUMENTS: Instrument[] = ["guitar", "banjo", "mandolin", "piano"];
 
@@ -30,17 +31,29 @@ export function InstrumentPicker({ selected, onSelect }: Props) {
 const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
-    backgroundColor: "#1a1a1a",
-    borderRadius: 8,
+    ...glass,
+    borderRadius: 12,
     padding: 4,
+    shadowColor: colors.accent,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    elevation: 4,
   },
   tab: {
     flex: 1,
-    paddingVertical: 8,
+    paddingVertical: 9,
     alignItems: "center",
-    borderRadius: 6,
+    borderRadius: 9,
   },
-  activeTab: { backgroundColor: "#6c47ff" },
-  label: { color: "#888", fontSize: 13, fontWeight: "500" },
-  activeLabel: { color: "#fff" },
+  activeTab: {
+    backgroundColor: colors.accent,
+    shadowColor: colors.accent,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 6,
+    elevation: 6,
+  },
+  label: { color: colors.textSecondary, fontSize: 13, fontWeight: "500" },
+  activeLabel: { color: colors.textPrimary, fontWeight: "600" },
 });
