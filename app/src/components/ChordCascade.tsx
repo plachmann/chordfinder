@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useMemo } from "react";
-import { View, Text, ScrollView, Animated, StyleSheet } from "react-native";
+import { View, Text, ScrollView, Animated, StyleSheet, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
 import { CascadeChip } from "./CascadeChip";
 import { Section } from "../types/api";
 import { colors } from "../theme";
@@ -83,7 +83,7 @@ export function ChordCascade({ sections }: Props) {
     isUserScrolling.current = true;
   };
 
-  const handleScrollEndDrag = (e: any) => {
+  const handleScrollEndDrag = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const { layoutMeasurement, contentOffset, contentSize } = e.nativeEvent;
     const isAtBottom =
       contentOffset.y + layoutMeasurement.height >= contentSize.height - 20;
