@@ -1,6 +1,6 @@
 package chords
 
-const sectionWindow = 8
+const sectionWindow = 32
 
 // Section represents a detected song section.
 type Section struct {
