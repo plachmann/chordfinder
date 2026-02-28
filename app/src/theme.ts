@@ -1,29 +1,31 @@
 export const colors = {
-  background: "#080808",
-  surface: "rgba(255,255,255,0.06)",
-  surfaceBorder: "rgba(255,255,255,0.10)",
-  accent: "#7c5cff",
-  accentGlow: "rgba(124,92,255,0.35)",
-  accentMid: "rgba(124,92,255,0.15)",
-  textPrimary: "#ffffff",
-  textSecondary: "rgba(255,255,255,0.45)",
-  errorBg: "rgba(180,30,30,0.85)",
-  warningBg: "rgba(120,90,0,0.85)",
+  background: "#1a1410",
+  surface: "rgba(180,140,80,0.08)",
+  surfaceBorder: "rgba(184,148,62,0.20)",
+  accent: "#d4892f",
+  accentGlow: "rgba(212,137,47,0.35)",
+  accentMid: "rgba(212,137,47,0.15)",
+  brass: "#b8943e",
+  brassGlow: "rgba(184,148,62,0.30)",
+  textPrimary: "#f0e6d0",
+  textSecondary: "rgba(210,190,150,0.55)",
+  errorBg: "rgba(180,50,30,0.85)",
+  warningBg: "rgba(160,110,20,0.85)",
 };
 
 export const glass = {
-  backgroundColor: colors.surface,
+  backgroundColor: "rgba(30,22,14,0.92)",
   borderWidth: 1,
   borderColor: colors.surfaceBorder,
-  borderRadius: 20,
+  borderRadius: 12,
 };
 
 export const shadows = {
   accent: {
     shadowColor: colors.accent,
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.25,
-    shadowRadius: 12,
-    elevation: 8,
+    shadowOpacity: 0.20,
+    shadowRadius: 10,
+    elevation: 6,
   },
 };

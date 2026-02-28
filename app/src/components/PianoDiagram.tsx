@@ -1,5 +1,6 @@
 import React from "react";
 import Svg, { Rect } from "react-native-svg";
+import { colors } from "../theme";
 
 const WHITE_NOTES = ["C", "D", "E", "F", "G", "A", "B"];
 const BLACK_POSITIONS: Record<string, number> = {
@@ -31,8 +32,8 @@ export function PianoDiagram({ keys }: Props) {
         <Rect
           key={`w-${oct}-${note}`}
           x={x} y={0} width={KEY_W - 1} height={H}
-          fill={active ? "#6c47ff" : "#f5f5f5"}
-          stroke="#333" strokeWidth={1} rx={2}
+          fill={active ? colors.accent : "#f0e6d0"}
+          stroke="rgba(100,80,50,0.4)" strokeWidth={1} rx={2}
         />
       );
     });
@@ -43,8 +44,8 @@ export function PianoDiagram({ keys }: Props) {
         <Rect
           key={`b-${oct}-${note}`}
           x={x} y={0} width={BLACK_W} height={BLACK_H}
-          fill={active ? "#a07af0" : "#222"}
-          stroke="#111" strokeWidth={1} rx={2}
+          fill={active ? "#c47028" : "#2a1e14"}
+          stroke="#1a1410" strokeWidth={1} rx={2}
         />
       );
     });
