@@ -52,17 +52,16 @@ export function CascadeChip({ label, isNewest, randomMargin }: Props) {
 
   return (
     <Animated.View
-      style={[
-        styles.chip,
-        {
-          marginHorizontal: randomMargin,
-          opacity,
-          borderColor,
-          transform: [{ translateY }, { scale }],
-        },
-      ]}
+      style={{
+        marginHorizontal: randomMargin,
+        marginBottom: 8,
+        opacity,
+        transform: [{ translateY }, { scale }],
+      }}
     >
-      <Text style={styles.label}>{label}</Text>
+      <Animated.View style={[styles.chip, { borderColor }]}>
+        <Text style={styles.label}>{label}</Text>
+      </Animated.View>
     </Animated.View>
   );
 }
@@ -76,7 +75,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 14,
     paddingVertical: 8,
-    marginBottom: 8,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
