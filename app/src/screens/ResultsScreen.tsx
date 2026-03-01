@@ -8,13 +8,15 @@ import {
 } from "react-native";
 import { Section, Instrument } from "../types/api";
 import { ChordDiagram } from "../components/ChordDiagram";
+import { InstrumentPicker } from "../components/InstrumentPicker";
 import { GlassCard } from "../components/GlassCard";
 import { ChordChip } from "../components/ChordChip";
 import { BottomSheet } from "../components/BottomSheet";
 import { colors } from "../theme";
 
 export function ResultsScreen({ route, navigation }: any) {
-  const { sections, instrument }: { sections: Section[]; instrument: Instrument } = route.params;
+  const { sections }: { sections: Section[] } = route.params;
+  const [instrument, setInstrument] = useState<Instrument>("guitar");
   const [selectedChord, setSelectedChord] = useState<string | null>(null);
 
   return (
@@ -25,6 +27,10 @@ export function ResultsScreen({ route, navigation }: any) {
         <Pressable onPress={() => navigation.navigate("Home")} style={styles.newSessionLink}>
           <Text style={styles.newSession}>New Session</Text>
         </Pressable>
+      </View>
+
+      <View style={styles.pickerRow}>
+        <InstrumentPicker selected={instrument} onSelect={setInstrument} />
       </View>
 
       {sections.length === 0 ? (
@@ -99,6 +105,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "600",
   },
+  pickerRow: { paddingHorizontal: 16, marginBottom: 16 },
   list: { paddingHorizontal: 16, paddingBottom: 40 },
   card: {
     padding: 16,
