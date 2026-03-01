@@ -6,8 +6,6 @@ import {
   StyleSheet,
 } from "react-native";
 import { useListeningSession } from "../hooks/useListeningSession";
-import { useInstrument } from "../hooks/useInstrument";
-import { InstrumentPicker } from "../components/InstrumentPicker";
 import { ListenOrb } from "../components/ListenOrb";
 import { ChordCascade } from "../components/ChordCascade";
 import { colors } from "../theme";
@@ -17,7 +15,6 @@ type OrbState = "idle" | "listening" | "detected";
 export function ListeningScreen({ navigation, route }: any) {
   const demo: boolean = route?.params?.demo ?? false;
   const { state, start, startDemo, stop } = useListeningSession();
-  const { instrument, setInstrument } = useInstrument();
   const [orbState, setOrbState] = useState<OrbState>("listening");
   const [banner, setBanner] = useState<string | null>(null);
   const bannerTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -51,7 +48,7 @@ export function ListeningScreen({ navigation, route }: any) {
 
   const handleStop = async () => {
     await stop();
-    navigation.navigate("Results", { sections: state.sections, instrument });
+    navigation.navigate("Results", { sections: state.sections });
   };
 
   return (
@@ -61,7 +58,6 @@ export function ListeningScreen({ navigation, route }: any) {
         <Pressable onPress={handleStop} style={styles.closeButton}>
           <Text style={styles.closeIcon}>\u2715</Text>
         </Pressable>
-        <InstrumentPicker selected={instrument} onSelect={setInstrument} />
       </View>
 
       {/* Toast banner */}

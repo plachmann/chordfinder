@@ -3,3945 +3,5068 @@
     "name": "C",
     "display_name": "C major",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          3,
-          2,
-          0,
-          1,
-          0
-        ],
-        "fingers": [
-          0,
-          3,
-          2,
-          0,
-          1,
-          0
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          0,
-          5,
-          0,
-          8
-        ],
-        "fingers": [
-          0,
-          2,
-          0,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          0,
-          5,
-          10,
-          3
-        ],
-        "fingers": [
-          0,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "C3",
-          "E3",
-          "G3"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            3,
+            2,
+            0,
+            1,
+            0
+          ],
+          "fingers": [
+            0,
+            3,
+            2,
+            0,
+            1,
+            0
+          ],
+          "position": 0
+        },
+        {
+          "frets": [
+            3,
+            3,
+            2,
+            0,
+            1,
+            0
+          ],
+          "fingers": [
+            3,
+            4,
+            2,
+            0,
+            1,
+            0
+          ],
+          "position": 0
+        },
+        {
+          "frets": [
+            -1,
+            3,
+            5,
+            5,
+            5,
+            3
+          ],
+          "fingers": [
+            0,
+            1,
+            3,
+            3,
+            3,
+            1
+          ],
+          "position": 3,
+          "barre": {
+            "fret": 3,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            0,
+            5,
+            0,
+            8
+          ],
+          "fingers": [
+            0,
+            2,
+            0,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            0,
+            5,
+            10,
+            3
+          ],
+          "fingers": [
+            0,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "C3",
+            "E3",
+            "G3"
+          ]
+        },
+        {
+          "keys": [
+            "E3",
+            "G3",
+            "C4"
+          ]
+        },
+        {
+          "keys": [
+            "G3",
+            "C4",
+            "E4"
+          ]
+        }
+      ]
     }
   },
   "Cm": {
     "name": "Cm",
     "display_name": "C minor",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          3,
-          5,
-          5,
-          4,
-          3
-        ],
-        "fingers": [
-          0,
-          1,
-          3,
-          4,
-          2,
-          1
-        ],
-        "position": 3,
-        "barre": {
-          "fret": 3,
-          "strings": [
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            3,
+            5,
+            5,
+            4,
+            3
+          ],
+          "fingers": [
+            0,
             1,
-            5
+            3,
+            4,
+            2,
+            1
+          ],
+          "position": 3,
+          "barre": {
+            "fret": 3,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        },
+        {
+          "frets": [
+            -1,
+            3,
+            1,
+            0,
+            1,
+            3
+          ],
+          "fingers": [
+            0,
+            3,
+            1,
+            0,
+            2,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            0,
+            5,
+            0,
+            8
+          ],
+          "fingers": [
+            0,
+            2,
+            0,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            0,
+            5,
+            10,
+            3
+          ],
+          "fingers": [
+            0,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "C3",
+            "D#3",
+            "G3"
+          ]
+        },
+        {
+          "keys": [
+            "D#3",
+            "G3",
+            "C4"
+          ]
+        },
+        {
+          "keys": [
+            "G3",
+            "C4",
+            "D#4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          0,
-          5,
-          0,
-          8
-        ],
-        "fingers": [
-          0,
-          2,
-          0,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          0,
-          5,
-          10,
-          3
-        ],
-        "fingers": [
-          0,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "C3",
-          "D#3",
-          "G3"
-        ]
-      }
+      ]
     }
   },
   "C7": {
     "name": "C7",
     "display_name": "C dominant 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          3,
-          2,
-          3,
-          1,
-          0
-        ],
-        "fingers": [
-          0,
-          3,
-          2,
-          4,
-          1,
-          0
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          3,
-          8,
-          3,
-          11
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          3,
-          8,
-          1,
-          6
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "C3",
-          "E3",
-          "G3",
-          "A#3"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            3,
+            2,
+            3,
+            1,
+            0
+          ],
+          "fingers": [
+            0,
+            3,
+            2,
+            4,
+            1,
+            0
+          ],
+          "position": 0
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            3,
+            8,
+            3,
+            11
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            3,
+            8,
+            1,
+            6
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "C3",
+            "E3",
+            "G3",
+            "A#3"
+          ]
+        }
+      ]
     }
   },
   "Cmaj7": {
     "name": "Cmaj7",
     "display_name": "C major 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          3,
-          2,
-          0,
-          0,
-          0
-        ],
-        "fingers": [
-          0,
-          3,
-          2,
-          0,
-          0,
-          0
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          4,
-          9,
-          4,
-          0
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          0
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          4,
-          9,
-          2,
-          7
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "C3",
-          "E3",
-          "G3",
-          "B3"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            3,
+            2,
+            0,
+            0,
+            0
+          ],
+          "fingers": [
+            0,
+            3,
+            2,
+            0,
+            0,
+            0
+          ],
+          "position": 0
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            4,
+            9,
+            4,
+            0
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            0
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            4,
+            9,
+            2,
+            7
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "C3",
+            "E3",
+            "G3",
+            "B3"
+          ]
+        }
+      ]
     }
   },
   "Cm7": {
     "name": "Cm7",
     "display_name": "C minor 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          3,
-          5,
-          3,
-          4,
-          3
-        ],
-        "fingers": [
-          0,
-          1,
-          3,
-          1,
-          2,
-          1
-        ],
-        "position": 3,
-        "barre": {
-          "fret": 3,
-          "strings": [
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            3,
+            5,
+            3,
+            4,
+            3
+          ],
+          "fingers": [
+            0,
             1,
-            5
+            3,
+            1,
+            2,
+            1
+          ],
+          "position": 3,
+          "barre": {
+            "fret": 3,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            3,
+            8,
+            3,
+            11
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            3,
+            8,
+            1,
+            6
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "C3",
+            "D#3",
+            "G3",
+            "A#3"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          3,
-          8,
-          3,
-          11
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          3,
-          8,
-          1,
-          6
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "C3",
-          "D#3",
-          "G3",
-          "A#3"
-        ]
-      }
+      ]
     }
   },
   "C#": {
     "name": "C#",
     "display_name": "C# major",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          4,
-          6,
-          6,
-          6,
-          4
-        ],
-        "fingers": [
-          1,
-          1,
-          2,
-          3,
-          4,
-          1
-        ],
-        "position": 4,
-        "barre": {
-          "fret": 4,
-          "strings": [
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            4,
+            6,
+            6,
+            6,
+            4
+          ],
+          "fingers": [
             1,
-            5
+            1,
+            2,
+            3,
+            4,
+            1
+          ],
+          "position": 4,
+          "barre": {
+            "fret": 4,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            1,
+            6,
+            1,
+            9
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            1,
+            6,
+            11,
+            4
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "C#3",
+            "F3",
+            "G#3"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          1,
-          6,
-          1,
-          9
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          1,
-          6,
-          11,
-          4
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "C#3",
-          "F3",
-          "G#3"
-        ]
-      }
+      ]
     }
   },
   "C#m": {
     "name": "C#m",
     "display_name": "C# minor",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          4,
-          6,
-          6,
-          5,
-          4
-        ],
-        "fingers": [
-          1,
-          1,
-          3,
-          4,
-          2,
-          1
-        ],
-        "position": 4,
-        "barre": {
-          "fret": 4,
-          "strings": [
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            4,
+            6,
+            6,
+            5,
+            4
+          ],
+          "fingers": [
             1,
-            5
+            1,
+            3,
+            4,
+            2,
+            1
+          ],
+          "position": 4,
+          "barre": {
+            "fret": 4,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            1,
+            6,
+            1,
+            9
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            1,
+            6,
+            11,
+            4
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "C#3",
+            "E3",
+            "G#3"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          1,
-          6,
-          1,
-          9
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          1,
-          6,
-          11,
-          4
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "C#3",
-          "E3",
-          "G#3"
-        ]
-      }
+      ]
     }
   },
   "C#7": {
     "name": "C#7",
     "display_name": "C# dominant 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          4,
-          6,
-          4,
-          6,
-          4
-        ],
-        "fingers": [
-          1,
-          1,
-          3,
-          1,
-          4,
-          1
-        ],
-        "position": 4,
-        "barre": {
-          "fret": 4,
-          "strings": [
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            4,
+            6,
+            4,
+            6,
+            4
+          ],
+          "fingers": [
             1,
-            5
+            1,
+            3,
+            1,
+            4,
+            1
+          ],
+          "position": 4,
+          "barre": {
+            "fret": 4,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            4,
+            9,
+            4,
+            0
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            0
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            4,
+            9,
+            2,
+            7
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "C#3",
+            "F3",
+            "G#3",
+            "B3"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          4,
-          9,
-          4,
-          0
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          0
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          4,
-          9,
-          2,
-          7
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "C#3",
-          "F3",
-          "G#3",
-          "B3"
-        ]
-      }
+      ]
     }
   },
   "C#maj7": {
     "name": "C#maj7",
     "display_name": "C# major 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          4,
-          6,
-          5,
-          6,
-          4
-        ],
-        "fingers": [
-          1,
-          1,
-          3,
-          2,
-          4,
-          1
-        ],
-        "position": 4
-      },
-      "banjo": {
-        "frets": [
-          5,
-          10,
-          5,
-          1
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          5,
-          10,
-          3,
-          8
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "C#3",
-          "F3",
-          "G#3",
-          "C4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            4,
+            6,
+            5,
+            6,
+            4
+          ],
+          "fingers": [
+            1,
+            1,
+            3,
+            2,
+            4,
+            1
+          ],
+          "position": 4
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            5,
+            10,
+            5,
+            1
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            5,
+            10,
+            3,
+            8
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "C#3",
+            "F3",
+            "G#3",
+            "C4"
+          ]
+        }
+      ]
     }
   },
   "C#m7": {
     "name": "C#m7",
     "display_name": "C# minor 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          4,
-          6,
-          4,
-          5,
-          4
-        ],
-        "fingers": [
-          1,
-          1,
-          3,
-          1,
-          2,
-          1
-        ],
-        "position": 4,
-        "barre": {
-          "fret": 4,
-          "strings": [
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            4,
+            6,
+            4,
+            5,
+            4
+          ],
+          "fingers": [
             1,
-            5
+            1,
+            3,
+            1,
+            2,
+            1
+          ],
+          "position": 4,
+          "barre": {
+            "fret": 4,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            4,
+            9,
+            4,
+            0
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            0
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            4,
+            9,
+            2,
+            7
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "C#3",
+            "E3",
+            "G#3",
+            "B3"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          4,
-          9,
-          4,
-          0
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          0
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          4,
-          9,
-          2,
-          7
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "C#3",
-          "E3",
-          "G#3",
-          "B3"
-        ]
-      }
+      ]
     }
   },
   "D": {
     "name": "D",
     "display_name": "D major",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          -1,
-          0,
-          2,
-          3,
-          2
-        ],
-        "fingers": [
-          0,
-          0,
-          0,
-          1,
-          3,
-          2
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          2,
-          7,
-          2,
-          10
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          2,
-          7,
-          0,
-          5
-        ],
-        "fingers": [
-          1,
-          2,
-          0,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "D3",
-          "F#3",
-          "A3"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            -1,
+            0,
+            2,
+            3,
+            2
+          ],
+          "fingers": [
+            0,
+            0,
+            0,
+            1,
+            3,
+            2
+          ],
+          "position": 0
+        },
+        {
+          "frets": [
+            -1,
+            5,
+            7,
+            7,
+            7,
+            5
+          ],
+          "fingers": [
+            0,
+            1,
+            3,
+            3,
+            3,
+            1
+          ],
+          "position": 5,
+          "barre": {
+            "fret": 5,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            2,
+            7,
+            2,
+            10
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            2,
+            7,
+            0,
+            5
+          ],
+          "fingers": [
+            1,
+            2,
+            0,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "D3",
+            "F#3",
+            "A3"
+          ]
+        },
+        {
+          "keys": [
+            "F#3",
+            "A3",
+            "D4"
+          ]
+        },
+        {
+          "keys": [
+            "A3",
+            "D4",
+            "F#4"
+          ]
+        }
+      ]
     }
   },
   "Dm": {
     "name": "Dm",
     "display_name": "D minor",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          -1,
-          0,
-          2,
-          3,
-          1
-        ],
-        "fingers": [
-          0,
-          0,
-          0,
-          2,
-          3,
-          1
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          2,
-          7,
-          2,
-          10
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          2,
-          7,
-          0,
-          5
-        ],
-        "fingers": [
-          1,
-          2,
-          0,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "D3",
-          "F3",
-          "A3"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            -1,
+            0,
+            2,
+            3,
+            1
+          ],
+          "fingers": [
+            0,
+            0,
+            0,
+            2,
+            3,
+            1
+          ],
+          "position": 0
+        },
+        {
+          "frets": [
+            -1,
+            5,
+            7,
+            7,
+            6,
+            5
+          ],
+          "fingers": [
+            0,
+            1,
+            3,
+            4,
+            2,
+            1
+          ],
+          "position": 5,
+          "barre": {
+            "fret": 5,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            2,
+            7,
+            2,
+            10
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            2,
+            7,
+            0,
+            5
+          ],
+          "fingers": [
+            1,
+            2,
+            0,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "D3",
+            "F3",
+            "A3"
+          ]
+        },
+        {
+          "keys": [
+            "F3",
+            "A3",
+            "D4"
+          ]
+        },
+        {
+          "keys": [
+            "A3",
+            "D4",
+            "F4"
+          ]
+        }
+      ]
     }
   },
   "D7": {
     "name": "D7",
     "display_name": "D dominant 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          -1,
-          0,
-          2,
-          1,
-          2
-        ],
-        "fingers": [
-          0,
-          0,
-          0,
-          2,
-          1,
-          3
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          5,
-          10,
-          5,
-          1
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          5,
-          10,
-          3,
-          8
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "D3",
-          "F#3",
-          "A3",
-          "C4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            -1,
+            0,
+            2,
+            1,
+            2
+          ],
+          "fingers": [
+            0,
+            0,
+            0,
+            2,
+            1,
+            3
+          ],
+          "position": 0
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            5,
+            10,
+            5,
+            1
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            5,
+            10,
+            3,
+            8
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "D3",
+            "F#3",
+            "A3",
+            "C4"
+          ]
+        }
+      ]
     }
   },
   "Dmaj7": {
     "name": "Dmaj7",
     "display_name": "D major 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          -1,
-          0,
-          2,
-          2,
-          2
-        ],
-        "fingers": [
-          0,
-          0,
-          0,
-          1,
-          1,
-          1
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          6,
-          11,
-          6,
-          2
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          6,
-          11,
-          4,
-          9
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "D3",
-          "F#3",
-          "A3",
-          "C#4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            -1,
+            0,
+            2,
+            2,
+            2
+          ],
+          "fingers": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "position": 0
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            6,
+            11,
+            6,
+            2
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            6,
+            11,
+            4,
+            9
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "D3",
+            "F#3",
+            "A3",
+            "C#4"
+          ]
+        }
+      ]
     }
   },
   "Dm7": {
     "name": "Dm7",
     "display_name": "D minor 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          -1,
-          0,
-          2,
-          1,
-          1
-        ],
-        "fingers": [
-          0,
-          0,
-          0,
-          2,
-          1,
-          1
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          5,
-          10,
-          5,
-          1
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          5,
-          10,
-          3,
-          8
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "D3",
-          "F3",
-          "A3",
-          "C4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            -1,
+            0,
+            2,
+            1,
+            1
+          ],
+          "fingers": [
+            0,
+            0,
+            0,
+            2,
+            1,
+            1
+          ],
+          "position": 0
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            5,
+            10,
+            5,
+            1
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            5,
+            10,
+            3,
+            8
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "D3",
+            "F3",
+            "A3",
+            "C4"
+          ]
+        }
+      ]
     }
   },
   "D#": {
     "name": "D#",
     "display_name": "D# major",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          -1,
-          5,
-          3,
-          4,
-          3
-        ],
-        "fingers": [
-          0,
-          0,
-          4,
-          1,
-          3,
-          2
-        ],
-        "position": 3
-      },
-      "banjo": {
-        "frets": [
-          3,
-          8,
-          3,
-          11
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          3,
-          8,
-          1,
-          6
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "D#3",
-          "G3",
-          "A#3"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            -1,
+            5,
+            3,
+            4,
+            3
+          ],
+          "fingers": [
+            0,
+            0,
+            4,
+            1,
+            3,
+            2
+          ],
+          "position": 3
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            3,
+            8,
+            3,
+            11
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            3,
+            8,
+            1,
+            6
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "D#3",
+            "G3",
+            "A#3"
+          ]
+        }
+      ]
     }
   },
   "D#m": {
     "name": "D#m",
     "display_name": "D# minor",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          -1,
-          5,
-          3,
-          4,
-          2
-        ],
-        "fingers": [
-          0,
-          0,
-          4,
-          2,
-          3,
-          1
-        ],
-        "position": 3
-      },
-      "banjo": {
-        "frets": [
-          3,
-          8,
-          3,
-          11
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          3,
-          8,
-          1,
-          6
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "D#3",
-          "F#3",
-          "A#3"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            -1,
+            5,
+            3,
+            4,
+            2
+          ],
+          "fingers": [
+            0,
+            0,
+            4,
+            2,
+            3,
+            1
+          ],
+          "position": 3
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            3,
+            8,
+            3,
+            11
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            3,
+            8,
+            1,
+            6
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "D#3",
+            "F#3",
+            "A#3"
+          ]
+        }
+      ]
     }
   },
   "D#7": {
     "name": "D#7",
     "display_name": "D# dominant 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          -1,
-          1,
-          3,
-          2,
-          3
-        ],
-        "fingers": [
-          0,
-          0,
-          1,
-          3,
-          2,
-          4
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          6,
-          11,
-          6,
-          2
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          6,
-          11,
-          4,
-          9
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "D#3",
-          "G3",
-          "A#3",
-          "C#4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            -1,
+            1,
+            3,
+            2,
+            3
+          ],
+          "fingers": [
+            0,
+            0,
+            1,
+            3,
+            2,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            6,
+            11,
+            6,
+            2
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            6,
+            11,
+            4,
+            9
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "D#3",
+            "G3",
+            "A#3",
+            "C#4"
+          ]
+        }
+      ]
     }
   },
   "D#maj7": {
     "name": "D#maj7",
     "display_name": "D# major 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          -1,
-          5,
-          3,
-          3,
-          3
-        ],
-        "fingers": [
-          0,
-          0,
-          4,
-          1,
-          1,
-          1
-        ],
-        "position": 3
-      },
-      "banjo": {
-        "frets": [
-          7,
-          0,
-          7,
-          3
-        ],
-        "fingers": [
-          1,
-          0,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          7,
-          0,
-          5,
-          10
-        ],
-        "fingers": [
-          1,
-          0,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "D#3",
-          "G3",
-          "A#3",
-          "D4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            -1,
+            5,
+            3,
+            3,
+            3
+          ],
+          "fingers": [
+            0,
+            0,
+            4,
+            1,
+            1,
+            1
+          ],
+          "position": 3
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            7,
+            0,
+            7,
+            3
+          ],
+          "fingers": [
+            1,
+            0,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            7,
+            0,
+            5,
+            10
+          ],
+          "fingers": [
+            1,
+            0,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "D#3",
+            "G3",
+            "A#3",
+            "D4"
+          ]
+        }
+      ]
     }
   },
   "D#m7": {
     "name": "D#m7",
     "display_name": "D# minor 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          -1,
-          1,
-          3,
-          2,
-          2
-        ],
-        "fingers": [
-          0,
-          0,
-          1,
-          3,
-          2,
-          2
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          6,
-          11,
-          6,
-          2
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          6,
-          11,
-          4,
-          9
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "D#3",
-          "F#3",
-          "A#3",
-          "C#4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            -1,
+            1,
+            3,
+            2,
+            2
+          ],
+          "fingers": [
+            0,
+            0,
+            1,
+            3,
+            2,
+            2
+          ],
+          "position": 0
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            6,
+            11,
+            6,
+            2
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            6,
+            11,
+            4,
+            9
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "D#3",
+            "F#3",
+            "A#3",
+            "C#4"
+          ]
+        }
+      ]
     }
   },
   "E": {
     "name": "E",
     "display_name": "E major",
     "instruments": {
-      "guitar": {
-        "frets": [
-          0,
-          2,
-          2,
-          1,
-          0,
-          0
-        ],
-        "fingers": [
-          0,
-          2,
-          3,
-          1,
-          0,
-          0
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          4,
-          9,
-          4,
-          0
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          0
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          4,
-          9,
-          2,
-          7
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "E3",
-          "G#3",
-          "B3"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            0,
+            2,
+            2,
+            1,
+            0,
+            0
+          ],
+          "fingers": [
+            0,
+            2,
+            3,
+            1,
+            0,
+            0
+          ],
+          "position": 0
+        },
+        {
+          "frets": [
+            -1,
+            7,
+            9,
+            9,
+            9,
+            7
+          ],
+          "fingers": [
+            0,
+            1,
+            3,
+            3,
+            3,
+            1
+          ],
+          "position": 7,
+          "barre": {
+            "fret": 7,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            4,
+            9,
+            4,
+            0
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            0
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            4,
+            9,
+            2,
+            7
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "E3",
+            "G#3",
+            "B3"
+          ]
+        },
+        {
+          "keys": [
+            "G#3",
+            "B3",
+            "E4"
+          ]
+        },
+        {
+          "keys": [
+            "B3",
+            "E4",
+            "G#4"
+          ]
+        }
+      ]
     }
   },
   "Em": {
     "name": "Em",
     "display_name": "E minor",
     "instruments": {
-      "guitar": {
-        "frets": [
-          0,
-          2,
-          2,
-          0,
-          0,
-          0
-        ],
-        "fingers": [
-          0,
-          2,
-          3,
-          0,
-          0,
-          0
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          4,
-          9,
-          4,
-          0
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          0
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          4,
-          9,
-          2,
-          7
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "E3",
-          "G3",
-          "B3"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            0,
+            2,
+            2,
+            0,
+            0,
+            0
+          ],
+          "fingers": [
+            0,
+            2,
+            3,
+            0,
+            0,
+            0
+          ],
+          "position": 0
+        },
+        {
+          "frets": [
+            -1,
+            7,
+            9,
+            9,
+            8,
+            7
+          ],
+          "fingers": [
+            0,
+            1,
+            3,
+            4,
+            2,
+            1
+          ],
+          "position": 7,
+          "barre": {
+            "fret": 7,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            4,
+            9,
+            4,
+            0
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            0
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            4,
+            9,
+            2,
+            7
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "E3",
+            "G3",
+            "B3"
+          ]
+        },
+        {
+          "keys": [
+            "G3",
+            "B3",
+            "E4"
+          ]
+        },
+        {
+          "keys": [
+            "B3",
+            "E4",
+            "G4"
+          ]
+        }
+      ]
     }
   },
   "E7": {
     "name": "E7",
     "display_name": "E dominant 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          0,
-          2,
-          0,
-          1,
-          0,
-          0
-        ],
-        "fingers": [
-          0,
-          2,
-          0,
-          1,
-          0,
-          0
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          7,
-          0,
-          7,
-          3
-        ],
-        "fingers": [
-          1,
-          0,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          7,
-          0,
-          5,
-          10
-        ],
-        "fingers": [
-          1,
-          0,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "E3",
-          "G#3",
-          "B3",
-          "D4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            0,
+            2,
+            0,
+            1,
+            0,
+            0
+          ],
+          "fingers": [
+            0,
+            2,
+            0,
+            1,
+            0,
+            0
+          ],
+          "position": 0
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            7,
+            0,
+            7,
+            3
+          ],
+          "fingers": [
+            1,
+            0,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            7,
+            0,
+            5,
+            10
+          ],
+          "fingers": [
+            1,
+            0,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "E3",
+            "G#3",
+            "B3",
+            "D4"
+          ]
+        }
+      ]
     }
   },
   "Emaj7": {
     "name": "Emaj7",
     "display_name": "E major 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          0,
-          2,
-          1,
-          1,
-          0,
-          0
-        ],
-        "fingers": [
-          0,
-          3,
-          1,
-          2,
-          0,
-          0
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          8,
-          1,
-          8,
-          4
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          8,
-          1,
-          6,
-          11
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "E3",
-          "G#3",
-          "B3",
-          "D#4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            0,
+            2,
+            1,
+            1,
+            0,
+            0
+          ],
+          "fingers": [
+            0,
+            3,
+            1,
+            2,
+            0,
+            0
+          ],
+          "position": 0
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            8,
+            1,
+            8,
+            4
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            8,
+            1,
+            6,
+            11
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "E3",
+            "G#3",
+            "B3",
+            "D#4"
+          ]
+        }
+      ]
     }
   },
   "Em7": {
     "name": "Em7",
     "display_name": "E minor 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          0,
-          2,
-          2,
-          0,
-          3,
-          0
-        ],
-        "fingers": [
-          0,
-          2,
-          3,
-          0,
-          4,
-          0
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          7,
-          0,
-          7,
-          3
-        ],
-        "fingers": [
-          1,
-          0,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          7,
-          0,
-          5,
-          10
-        ],
-        "fingers": [
-          1,
-          0,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "E3",
-          "G3",
-          "B3",
-          "D4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            0,
+            2,
+            2,
+            0,
+            3,
+            0
+          ],
+          "fingers": [
+            0,
+            2,
+            3,
+            0,
+            4,
+            0
+          ],
+          "position": 0
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            7,
+            0,
+            7,
+            3
+          ],
+          "fingers": [
+            1,
+            0,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            7,
+            0,
+            5,
+            10
+          ],
+          "fingers": [
+            1,
+            0,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "E3",
+            "G3",
+            "B3",
+            "D4"
+          ]
+        }
+      ]
     }
   },
   "F": {
     "name": "F",
     "display_name": "F major",
     "instruments": {
-      "guitar": {
-        "frets": [
-          1,
-          3,
-          3,
-          2,
-          1,
-          1
-        ],
-        "fingers": [
-          1,
-          3,
-          4,
-          2,
-          1,
-          1
-        ],
-        "position": 1,
-        "barre": {
-          "fret": 1,
-          "strings": [
+      "guitar": [
+        {
+          "frets": [
+            1,
+            3,
+            3,
+            2,
+            1,
+            1
+          ],
+          "fingers": [
+            1,
+            3,
+            4,
+            2,
+            1,
+            1
+          ],
+          "position": 1,
+          "barre": {
+            "fret": 1,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        },
+        {
+          "frets": [
+            1,
+            1,
+            2,
+            3,
+            3,
+            1
+          ],
+          "fingers": [
+            1,
+            1,
+            2,
+            3,
+            4,
+            1
+          ],
+          "position": 1,
+          "barre": {
+            "fret": 1,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        },
+        {
+          "frets": [
+            -1,
+            -1,
+            3,
+            2,
+            1,
+            1
+          ],
+          "fingers": [
             0,
-            5
+            0,
+            3,
+            2,
+            1,
+            1
+          ],
+          "position": 1,
+          "barre": {
+            "fret": 1,
+            "strings": [
+              4,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            5,
+            10,
+            5,
+            1
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            5,
+            10,
+            3,
+            8
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "F3",
+            "A3",
+            "C4"
+          ]
+        },
+        {
+          "keys": [
+            "A3",
+            "C4",
+            "F4"
+          ]
+        },
+        {
+          "keys": [
+            "C4",
+            "F4",
+            "A4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          5,
-          10,
-          5,
-          1
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          5,
-          10,
-          3,
-          8
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "F3",
-          "A3",
-          "C4"
-        ]
-      }
+      ]
     }
   },
   "Fm": {
     "name": "Fm",
     "display_name": "F minor",
     "instruments": {
-      "guitar": {
-        "frets": [
-          1,
-          3,
-          3,
-          1,
-          1,
-          1
-        ],
-        "fingers": [
-          1,
-          3,
-          4,
-          1,
-          1,
-          1
-        ],
-        "position": 1,
-        "barre": {
-          "fret": 1,
-          "strings": [
-            0,
-            5
+      "guitar": [
+        {
+          "frets": [
+            1,
+            3,
+            3,
+            1,
+            1,
+            1
+          ],
+          "fingers": [
+            1,
+            3,
+            4,
+            1,
+            1,
+            1
+          ],
+          "position": 1,
+          "barre": {
+            "fret": 1,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        },
+        {
+          "frets": [
+            1,
+            1,
+            1,
+            3,
+            3,
+            1
+          ],
+          "fingers": [
+            1,
+            1,
+            1,
+            3,
+            4,
+            1
+          ],
+          "position": 1,
+          "barre": {
+            "fret": 1,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            5,
+            10,
+            5,
+            1
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            5,
+            10,
+            3,
+            8
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "F3",
+            "G#3",
+            "C4"
+          ]
+        },
+        {
+          "keys": [
+            "G#3",
+            "C4",
+            "F4"
+          ]
+        },
+        {
+          "keys": [
+            "C4",
+            "F4",
+            "G#4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          5,
-          10,
-          5,
-          1
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          5,
-          10,
-          3,
-          8
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "F3",
-          "G#3",
-          "C4"
-        ]
-      }
+      ]
     }
   },
   "F7": {
     "name": "F7",
     "display_name": "F dominant 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          1,
-          3,
-          1,
-          2,
-          1,
-          1
-        ],
-        "fingers": [
-          1,
-          3,
-          1,
-          2,
-          1,
-          1
-        ],
-        "position": 1,
-        "barre": {
-          "fret": 1,
-          "strings": [
-            0,
-            5
+      "guitar": [
+        {
+          "frets": [
+            1,
+            3,
+            1,
+            2,
+            1,
+            1
+          ],
+          "fingers": [
+            1,
+            3,
+            1,
+            2,
+            1,
+            1
+          ],
+          "position": 1,
+          "barre": {
+            "fret": 1,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            8,
+            1,
+            8,
+            4
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            8,
+            1,
+            6,
+            11
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "F3",
+            "A3",
+            "C4",
+            "D#4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          8,
-          1,
-          8,
-          4
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          8,
-          1,
-          6,
-          11
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "F3",
-          "A3",
-          "C4",
-          "D#4"
-        ]
-      }
+      ]
     }
   },
   "Fmaj7": {
     "name": "Fmaj7",
     "display_name": "F major 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          0,
-          0,
-          3,
-          2,
-          1,
-          0
-        ],
-        "fingers": [
-          0,
-          0,
-          4,
-          3,
-          1,
-          0
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          9,
-          2,
-          9,
-          5
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          9,
-          2,
-          7,
-          0
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          0
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "F3",
-          "A3",
-          "C4",
-          "E4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            0,
+            0,
+            3,
+            2,
+            1,
+            0
+          ],
+          "fingers": [
+            0,
+            0,
+            4,
+            3,
+            1,
+            0
+          ],
+          "position": 0
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            9,
+            2,
+            9,
+            5
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            9,
+            2,
+            7,
+            0
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            0
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "F3",
+            "A3",
+            "C4",
+            "E4"
+          ]
+        }
+      ]
     }
   },
   "Fm7": {
     "name": "Fm7",
     "display_name": "F minor 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          1,
-          3,
-          1,
-          1,
-          1,
-          1
-        ],
-        "fingers": [
-          1,
-          3,
-          1,
-          1,
-          1,
-          1
-        ],
-        "position": 1,
-        "barre": {
-          "fret": 1,
-          "strings": [
-            0,
-            5
+      "guitar": [
+        {
+          "frets": [
+            1,
+            3,
+            1,
+            1,
+            1,
+            1
+          ],
+          "fingers": [
+            1,
+            3,
+            1,
+            1,
+            1,
+            1
+          ],
+          "position": 1,
+          "barre": {
+            "fret": 1,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            8,
+            1,
+            8,
+            4
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            8,
+            1,
+            6,
+            11
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "F3",
+            "G#3",
+            "C4",
+            "D#4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          8,
-          1,
-          8,
-          4
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          8,
-          1,
-          6,
-          11
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "F3",
-          "G#3",
-          "C4",
-          "D#4"
-        ]
-      }
+      ]
     }
   },
   "F#": {
     "name": "F#",
     "display_name": "F# major",
     "instruments": {
-      "guitar": {
-        "frets": [
-          2,
-          4,
-          4,
-          3,
-          2,
-          2
-        ],
-        "fingers": [
-          1,
-          3,
-          4,
-          2,
-          1,
-          1
-        ],
-        "position": 2,
-        "barre": {
-          "fret": 2,
-          "strings": [
-            0,
-            5
+      "guitar": [
+        {
+          "frets": [
+            2,
+            4,
+            4,
+            3,
+            2,
+            2
+          ],
+          "fingers": [
+            1,
+            3,
+            4,
+            2,
+            1,
+            1
+          ],
+          "position": 2,
+          "barre": {
+            "fret": 2,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            6,
+            11,
+            6,
+            2
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            6,
+            11,
+            4,
+            9
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "F#3",
+            "A#3",
+            "C#4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          6,
-          11,
-          6,
-          2
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          6,
-          11,
-          4,
-          9
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "F#3",
-          "A#3",
-          "C#4"
-        ]
-      }
+      ]
     }
   },
   "F#m": {
     "name": "F#m",
     "display_name": "F# minor",
     "instruments": {
-      "guitar": {
-        "frets": [
-          2,
-          4,
-          4,
-          2,
-          2,
-          2
-        ],
-        "fingers": [
-          1,
-          3,
-          4,
-          1,
-          1,
-          1
-        ],
-        "position": 2,
-        "barre": {
-          "fret": 2,
-          "strings": [
-            0,
-            5
+      "guitar": [
+        {
+          "frets": [
+            2,
+            4,
+            4,
+            2,
+            2,
+            2
+          ],
+          "fingers": [
+            1,
+            3,
+            4,
+            1,
+            1,
+            1
+          ],
+          "position": 2,
+          "barre": {
+            "fret": 2,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            6,
+            11,
+            6,
+            2
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            6,
+            11,
+            4,
+            9
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "F#3",
+            "A3",
+            "C#4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          6,
-          11,
-          6,
-          2
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          6,
-          11,
-          4,
-          9
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "F#3",
-          "A3",
-          "C#4"
-        ]
-      }
+      ]
     }
   },
   "F#7": {
     "name": "F#7",
     "display_name": "F# dominant 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          2,
-          4,
-          2,
-          3,
-          2,
-          2
-        ],
-        "fingers": [
-          1,
-          3,
-          1,
-          2,
-          1,
-          1
-        ],
-        "position": 2,
-        "barre": {
-          "fret": 2,
-          "strings": [
-            0,
+      "guitar": [
+        {
+          "frets": [
+            2,
+            4,
+            2,
+            3,
+            2,
+            2
+          ],
+          "fingers": [
+            1,
+            3,
+            1,
+            2,
+            1,
+            1
+          ],
+          "position": 2,
+          "barre": {
+            "fret": 2,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            9,
+            2,
+            9,
             5
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            9,
+            2,
+            7,
+            0
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            0
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "F#3",
+            "A#3",
+            "C#4",
+            "E4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          9,
-          2,
-          9,
-          5
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          9,
-          2,
-          7,
-          0
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          0
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "F#3",
-          "A#3",
-          "C#4",
-          "E4"
-        ]
-      }
+      ]
     }
   },
   "F#maj7": {
     "name": "F#maj7",
     "display_name": "F# major 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          2,
-          4,
-          3,
-          3,
-          2,
-          2
-        ],
-        "fingers": [
-          1,
-          4,
-          3,
-          2,
-          1,
-          1
-        ],
-        "position": 2
-      },
-      "banjo": {
-        "frets": [
-          10,
-          3,
-          10,
-          6
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          10,
-          3,
-          8,
-          1
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "F#3",
-          "A#3",
-          "C#4",
-          "F4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            2,
+            4,
+            3,
+            3,
+            2,
+            2
+          ],
+          "fingers": [
+            1,
+            4,
+            3,
+            2,
+            1,
+            1
+          ],
+          "position": 2
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            10,
+            3,
+            10,
+            6
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            10,
+            3,
+            8,
+            1
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "F#3",
+            "A#3",
+            "C#4",
+            "F4"
+          ]
+        }
+      ]
     }
   },
   "F#m7": {
     "name": "F#m7",
     "display_name": "F# minor 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          2,
-          4,
-          2,
-          2,
-          2,
-          2
-        ],
-        "fingers": [
-          1,
-          3,
-          1,
-          1,
-          1,
-          1
-        ],
-        "position": 2,
-        "barre": {
-          "fret": 2,
-          "strings": [
-            0,
+      "guitar": [
+        {
+          "frets": [
+            2,
+            4,
+            2,
+            2,
+            2,
+            2
+          ],
+          "fingers": [
+            1,
+            3,
+            1,
+            1,
+            1,
+            1
+          ],
+          "position": 2,
+          "barre": {
+            "fret": 2,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            9,
+            2,
+            9,
             5
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            9,
+            2,
+            7,
+            0
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            0
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "F#3",
+            "A3",
+            "C#4",
+            "E4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          9,
-          2,
-          9,
-          5
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          9,
-          2,
-          7,
-          0
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          0
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "F#3",
-          "A3",
-          "C#4",
-          "E4"
-        ]
-      }
+      ]
     }
   },
   "G": {
     "name": "G",
     "display_name": "G major",
     "instruments": {
-      "guitar": {
-        "frets": [
-          3,
-          2,
-          0,
-          0,
-          0,
-          3
-        ],
-        "fingers": [
-          2,
-          1,
-          0,
-          0,
-          0,
-          3
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          7,
-          0,
-          7,
-          3
-        ],
-        "fingers": [
-          1,
-          0,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          7,
-          0,
-          5,
-          10
-        ],
-        "fingers": [
-          1,
-          0,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "G3",
-          "B3",
-          "D4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            3,
+            2,
+            0,
+            0,
+            0,
+            3
+          ],
+          "fingers": [
+            2,
+            1,
+            0,
+            0,
+            0,
+            3
+          ],
+          "position": 0
+        },
+        {
+          "frets": [
+            3,
+            2,
+            0,
+            0,
+            3,
+            3
+          ],
+          "fingers": [
+            2,
+            1,
+            0,
+            0,
+            3,
+            4
+          ],
+          "position": 0
+        },
+        {
+          "frets": [
+            3,
+            5,
+            5,
+            4,
+            3,
+            3
+          ],
+          "fingers": [
+            1,
+            3,
+            4,
+            2,
+            1,
+            1
+          ],
+          "position": 3,
+          "barre": {
+            "fret": 3,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            7,
+            0,
+            7,
+            3
+          ],
+          "fingers": [
+            1,
+            0,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            7,
+            0,
+            5,
+            10
+          ],
+          "fingers": [
+            1,
+            0,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "G3",
+            "B3",
+            "D4"
+          ]
+        },
+        {
+          "keys": [
+            "B3",
+            "D4",
+            "G4"
+          ]
+        },
+        {
+          "keys": [
+            "D4",
+            "G4",
+            "B4"
+          ]
+        }
+      ]
     }
   },
   "Gm": {
     "name": "Gm",
     "display_name": "G minor",
     "instruments": {
-      "guitar": {
-        "frets": [
-          3,
-          5,
-          5,
-          3,
-          3,
-          3
-        ],
-        "fingers": [
-          1,
-          3,
-          4,
-          1,
-          1,
-          1
-        ],
-        "position": 3,
-        "barre": {
-          "fret": 3,
-          "strings": [
+      "guitar": [
+        {
+          "frets": [
+            3,
+            5,
+            5,
+            3,
+            3,
+            3
+          ],
+          "fingers": [
+            1,
+            3,
+            4,
+            1,
+            1,
+            1
+          ],
+          "position": 3,
+          "barre": {
+            "fret": 3,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            7,
             0,
-            5
+            7,
+            3
+          ],
+          "fingers": [
+            1,
+            0,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            7,
+            0,
+            5,
+            10
+          ],
+          "fingers": [
+            1,
+            0,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "G3",
+            "A#3",
+            "D4"
+          ]
+        },
+        {
+          "keys": [
+            "A#3",
+            "D4",
+            "G4"
+          ]
+        },
+        {
+          "keys": [
+            "D4",
+            "G4",
+            "A#4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          7,
-          0,
-          7,
-          3
-        ],
-        "fingers": [
-          1,
-          0,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          7,
-          0,
-          5,
-          10
-        ],
-        "fingers": [
-          1,
-          0,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "G3",
-          "A#3",
-          "D4"
-        ]
-      }
+      ]
     }
   },
   "G7": {
     "name": "G7",
     "display_name": "G dominant 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          3,
-          2,
-          0,
-          0,
-          0,
-          1
-        ],
-        "fingers": [
-          3,
-          2,
-          0,
-          0,
-          0,
-          1
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          10,
-          3,
-          10,
-          6
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          10,
-          3,
-          8,
-          1
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "G3",
-          "B3",
-          "D4",
-          "F4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            3,
+            2,
+            0,
+            0,
+            0,
+            1
+          ],
+          "fingers": [
+            3,
+            2,
+            0,
+            0,
+            0,
+            1
+          ],
+          "position": 0
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            10,
+            3,
+            10,
+            6
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            10,
+            3,
+            8,
+            1
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "G3",
+            "B3",
+            "D4",
+            "F4"
+          ]
+        }
+      ]
     }
   },
   "Gmaj7": {
     "name": "Gmaj7",
     "display_name": "G major 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          3,
-          2,
-          0,
-          0,
-          0,
-          2
-        ],
-        "fingers": [
-          3,
-          2,
-          0,
-          0,
-          0,
-          4
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          11,
-          4,
-          11,
-          7
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          11,
-          4,
-          9,
-          2
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "G3",
-          "B3",
-          "D4",
-          "F#4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            3,
+            2,
+            0,
+            0,
+            0,
+            2
+          ],
+          "fingers": [
+            3,
+            2,
+            0,
+            0,
+            0,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            11,
+            4,
+            11,
+            7
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            11,
+            4,
+            9,
+            2
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "G3",
+            "B3",
+            "D4",
+            "F#4"
+          ]
+        }
+      ]
     }
   },
   "Gm7": {
     "name": "Gm7",
     "display_name": "G minor 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          3,
-          5,
-          3,
-          3,
-          3,
-          3
-        ],
-        "fingers": [
-          1,
-          3,
-          1,
-          1,
-          1,
-          1
-        ],
-        "position": 3,
-        "barre": {
-          "fret": 3,
-          "strings": [
-            0,
-            5
+      "guitar": [
+        {
+          "frets": [
+            3,
+            5,
+            3,
+            3,
+            3,
+            3
+          ],
+          "fingers": [
+            1,
+            3,
+            1,
+            1,
+            1,
+            1
+          ],
+          "position": 3,
+          "barre": {
+            "fret": 3,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            10,
+            3,
+            10,
+            6
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            10,
+            3,
+            8,
+            1
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "G3",
+            "A#3",
+            "D4",
+            "F4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          10,
-          3,
-          10,
-          6
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          10,
-          3,
-          8,
-          1
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "G3",
-          "A#3",
-          "D4",
-          "F4"
-        ]
-      }
+      ]
     }
   },
   "G#": {
     "name": "G#",
     "display_name": "G# major",
     "instruments": {
-      "guitar": {
-        "frets": [
-          4,
-          6,
-          6,
-          5,
-          4,
-          4
-        ],
-        "fingers": [
-          1,
-          3,
-          4,
-          2,
-          1,
-          1
-        ],
-        "position": 4,
-        "barre": {
-          "fret": 4,
-          "strings": [
-            0,
-            5
+      "guitar": [
+        {
+          "frets": [
+            4,
+            6,
+            6,
+            5,
+            4,
+            4
+          ],
+          "fingers": [
+            1,
+            3,
+            4,
+            2,
+            1,
+            1
+          ],
+          "position": 4,
+          "barre": {
+            "fret": 4,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            8,
+            1,
+            8,
+            4
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            8,
+            1,
+            6,
+            11
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "G#3",
+            "C4",
+            "D#4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          8,
-          1,
-          8,
-          4
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          8,
-          1,
-          6,
-          11
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "G#3",
-          "C4",
-          "D#4"
-        ]
-      }
+      ]
     }
   },
   "G#m": {
     "name": "G#m",
     "display_name": "G# minor",
     "instruments": {
-      "guitar": {
-        "frets": [
-          4,
-          6,
-          6,
-          4,
-          4,
-          4
-        ],
-        "fingers": [
-          1,
-          3,
-          4,
-          1,
-          1,
-          1
-        ],
-        "position": 4,
-        "barre": {
-          "fret": 4,
-          "strings": [
-            0,
-            5
+      "guitar": [
+        {
+          "frets": [
+            4,
+            6,
+            6,
+            4,
+            4,
+            4
+          ],
+          "fingers": [
+            1,
+            3,
+            4,
+            1,
+            1,
+            1
+          ],
+          "position": 4,
+          "barre": {
+            "fret": 4,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            8,
+            1,
+            8,
+            4
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            8,
+            1,
+            6,
+            11
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "G#3",
+            "B3",
+            "D#4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          8,
-          1,
-          8,
-          4
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          8,
-          1,
-          6,
-          11
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "G#3",
-          "B3",
-          "D#4"
-        ]
-      }
+      ]
     }
   },
   "G#7": {
     "name": "G#7",
     "display_name": "G# dominant 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          4,
-          6,
-          4,
-          5,
-          4,
-          4
-        ],
-        "fingers": [
-          1,
-          3,
-          1,
-          2,
-          1,
-          1
-        ],
-        "position": 4,
-        "barre": {
-          "fret": 4,
-          "strings": [
-            0,
-            5
+      "guitar": [
+        {
+          "frets": [
+            4,
+            6,
+            4,
+            5,
+            4,
+            4
+          ],
+          "fingers": [
+            1,
+            3,
+            1,
+            2,
+            1,
+            1
+          ],
+          "position": 4,
+          "barre": {
+            "fret": 4,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            11,
+            4,
+            11,
+            7
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            11,
+            4,
+            9,
+            2
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "G#3",
+            "C4",
+            "D#4",
+            "F#4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          11,
-          4,
-          11,
-          7
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          11,
-          4,
-          9,
-          2
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "G#3",
-          "C4",
-          "D#4",
-          "F#4"
-        ]
-      }
+      ]
     }
   },
   "G#maj7": {
     "name": "G#maj7",
     "display_name": "G# major 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          4,
-          6,
-          5,
-          5,
-          4,
-          4
-        ],
-        "fingers": [
-          1,
-          4,
-          3,
-          2,
-          1,
-          1
-        ],
-        "position": 4
-      },
-      "banjo": {
-        "frets": [
-          0,
-          5,
-          0,
-          8
-        ],
-        "fingers": [
-          0,
-          2,
-          0,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          0,
-          5,
-          10,
-          3
-        ],
-        "fingers": [
-          0,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "G#3",
-          "C4",
-          "D#4",
-          "G4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            4,
+            6,
+            5,
+            5,
+            4,
+            4
+          ],
+          "fingers": [
+            1,
+            4,
+            3,
+            2,
+            1,
+            1
+          ],
+          "position": 4
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            0,
+            5,
+            0,
+            8
+          ],
+          "fingers": [
+            0,
+            2,
+            0,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            0,
+            5,
+            10,
+            3
+          ],
+          "fingers": [
+            0,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "G#3",
+            "C4",
+            "D#4",
+            "G4"
+          ]
+        }
+      ]
     }
   },
   "G#m7": {
     "name": "G#m7",
     "display_name": "G# minor 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          4,
-          6,
-          4,
-          4,
-          4,
-          4
-        ],
-        "fingers": [
-          1,
-          3,
-          1,
-          1,
-          1,
-          1
-        ],
-        "position": 4,
-        "barre": {
-          "fret": 4,
-          "strings": [
-            0,
-            5
+      "guitar": [
+        {
+          "frets": [
+            4,
+            6,
+            4,
+            4,
+            4,
+            4
+          ],
+          "fingers": [
+            1,
+            3,
+            1,
+            1,
+            1,
+            1
+          ],
+          "position": 4,
+          "barre": {
+            "fret": 4,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            11,
+            4,
+            11,
+            7
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            11,
+            4,
+            9,
+            2
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "G#3",
+            "B3",
+            "D#4",
+            "F#4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          11,
-          4,
-          11,
-          7
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          11,
-          4,
-          9,
-          2
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "G#3",
-          "B3",
-          "D#4",
-          "F#4"
-        ]
-      }
+      ]
     }
   },
   "A": {
     "name": "A",
     "display_name": "A major",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          0,
-          2,
-          2,
-          2,
-          0
-        ],
-        "fingers": [
-          0,
-          0,
-          1,
-          2,
-          3,
-          0
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          9,
-          2,
-          9,
-          5
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          9,
-          2,
-          7,
-          0
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          0
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "A3",
-          "C#4",
-          "E4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            0,
+            2,
+            2,
+            2,
+            0
+          ],
+          "fingers": [
+            0,
+            0,
+            1,
+            2,
+            3,
+            0
+          ],
+          "position": 0
+        },
+        {
+          "frets": [
+            5,
+            7,
+            7,
+            6,
+            5,
+            5
+          ],
+          "fingers": [
+            1,
+            3,
+            4,
+            2,
+            1,
+            1
+          ],
+          "position": 5,
+          "barre": {
+            "fret": 5,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            9,
+            2,
+            9,
+            5
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            9,
+            2,
+            7,
+            0
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            0
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "A3",
+            "C#4",
+            "E4"
+          ]
+        },
+        {
+          "keys": [
+            "C#3",
+            "E3",
+            "A3"
+          ]
+        },
+        {
+          "keys": [
+            "E3",
+            "A3",
+            "C#4"
+          ]
+        }
+      ]
     }
   },
   "Am": {
     "name": "Am",
     "display_name": "A minor",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          0,
-          2,
-          2,
-          1,
-          0
-        ],
-        "fingers": [
-          0,
-          0,
-          2,
-          3,
-          1,
-          0
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          9,
-          2,
-          9,
-          5
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          9,
-          2,
-          7,
-          0
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          0
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "A3",
-          "C4",
-          "E4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            0,
+            2,
+            2,
+            1,
+            0
+          ],
+          "fingers": [
+            0,
+            0,
+            2,
+            3,
+            1,
+            0
+          ],
+          "position": 0
+        },
+        {
+          "frets": [
+            5,
+            7,
+            7,
+            5,
+            5,
+            5
+          ],
+          "fingers": [
+            1,
+            3,
+            4,
+            1,
+            1,
+            1
+          ],
+          "position": 5,
+          "barre": {
+            "fret": 5,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            9,
+            2,
+            9,
+            5
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            9,
+            2,
+            7,
+            0
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            0
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "A3",
+            "C4",
+            "E4"
+          ]
+        },
+        {
+          "keys": [
+            "C3",
+            "E3",
+            "A3"
+          ]
+        },
+        {
+          "keys": [
+            "E3",
+            "A3",
+            "C4"
+          ]
+        }
+      ]
     }
   },
   "A7": {
     "name": "A7",
     "display_name": "A dominant 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          0,
-          2,
-          0,
-          2,
-          0
-        ],
-        "fingers": [
-          0,
-          0,
-          2,
-          0,
-          3,
-          0
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          0,
-          5,
-          0,
-          8
-        ],
-        "fingers": [
-          0,
-          2,
-          0,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          0,
-          5,
-          10,
-          3
-        ],
-        "fingers": [
-          0,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "A3",
-          "C#4",
-          "E4",
-          "G4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            0,
+            2,
+            0,
+            2,
+            0
+          ],
+          "fingers": [
+            0,
+            0,
+            2,
+            0,
+            3,
+            0
+          ],
+          "position": 0
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            0,
+            5,
+            0,
+            8
+          ],
+          "fingers": [
+            0,
+            2,
+            0,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            0,
+            5,
+            10,
+            3
+          ],
+          "fingers": [
+            0,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "A3",
+            "C#4",
+            "E4",
+            "G4"
+          ]
+        }
+      ]
     }
   },
   "Amaj7": {
     "name": "Amaj7",
     "display_name": "A major 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          0,
-          2,
-          1,
-          2,
-          0
-        ],
-        "fingers": [
-          0,
-          0,
-          3,
-          1,
-          4,
-          0
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          1,
-          6,
-          1,
-          9
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          1,
-          6,
-          11,
-          4
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "A3",
-          "C#4",
-          "E4",
-          "G#4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            0,
+            2,
+            1,
+            2,
+            0
+          ],
+          "fingers": [
+            0,
+            0,
+            3,
+            1,
+            4,
+            0
+          ],
+          "position": 0
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            1,
+            6,
+            1,
+            9
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            1,
+            6,
+            11,
+            4
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "A3",
+            "C#4",
+            "E4",
+            "G#4"
+          ]
+        }
+      ]
     }
   },
   "Am7": {
     "name": "Am7",
     "display_name": "A minor 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          0,
-          2,
-          0,
-          1,
-          0
-        ],
-        "fingers": [
-          0,
-          0,
-          2,
-          0,
-          1,
-          0
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          0,
-          5,
-          0,
-          8
-        ],
-        "fingers": [
-          0,
-          2,
-          0,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          0,
-          5,
-          10,
-          3
-        ],
-        "fingers": [
-          0,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "A3",
-          "C4",
-          "E4",
-          "G4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            0,
+            2,
+            0,
+            1,
+            0
+          ],
+          "fingers": [
+            0,
+            0,
+            2,
+            0,
+            1,
+            0
+          ],
+          "position": 0
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            0,
+            5,
+            0,
+            8
+          ],
+          "fingers": [
+            0,
+            2,
+            0,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            0,
+            5,
+            10,
+            3
+          ],
+          "fingers": [
+            0,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "A3",
+            "C4",
+            "E4",
+            "G4"
+          ]
+        }
+      ]
     }
   },
   "A#": {
     "name": "A#",
     "display_name": "A# major",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          1,
-          3,
-          3,
-          3,
-          1
-        ],
-        "fingers": [
-          1,
-          1,
-          2,
-          3,
-          4,
-          1
-        ],
-        "position": 1,
-        "barre": {
-          "fret": 1,
-          "strings": [
+      "guitar": [
+        {
+          "frets": [
+            -1,
             1,
-            5
+            3,
+            3,
+            3,
+            1
+          ],
+          "fingers": [
+            1,
+            1,
+            2,
+            3,
+            4,
+            1
+          ],
+          "position": 1,
+          "barre": {
+            "fret": 1,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            10,
+            3,
+            10,
+            6
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            10,
+            3,
+            8,
+            1
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "A#3",
+            "D4",
+            "F4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          10,
-          3,
-          10,
-          6
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          10,
-          3,
-          8,
-          1
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "A#3",
-          "D4",
-          "F4"
-        ]
-      }
+      ]
     }
   },
   "A#m": {
     "name": "A#m",
     "display_name": "A# minor",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          1,
-          3,
-          3,
-          2,
-          1
-        ],
-        "fingers": [
-          1,
-          1,
-          3,
-          4,
-          2,
-          1
-        ],
-        "position": 1,
-        "barre": {
-          "fret": 1,
-          "strings": [
+      "guitar": [
+        {
+          "frets": [
+            -1,
             1,
-            5
+            3,
+            3,
+            2,
+            1
+          ],
+          "fingers": [
+            1,
+            1,
+            3,
+            4,
+            2,
+            1
+          ],
+          "position": 1,
+          "barre": {
+            "fret": 1,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            10,
+            3,
+            10,
+            6
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            10,
+            3,
+            8,
+            1
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "A#3",
+            "C#4",
+            "F4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          10,
-          3,
-          10,
-          6
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          10,
-          3,
-          8,
-          1
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "A#3",
-          "C#4",
-          "F4"
-        ]
-      }
+      ]
     }
   },
   "A#7": {
     "name": "A#7",
     "display_name": "A# dominant 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          1,
-          3,
-          1,
-          3,
-          1
-        ],
-        "fingers": [
-          1,
-          1,
-          3,
-          1,
-          4,
-          1
-        ],
-        "position": 1,
-        "barre": {
-          "fret": 1,
-          "strings": [
+      "guitar": [
+        {
+          "frets": [
+            -1,
             1,
-            5
+            3,
+            1,
+            3,
+            1
+          ],
+          "fingers": [
+            1,
+            1,
+            3,
+            1,
+            4,
+            1
+          ],
+          "position": 1,
+          "barre": {
+            "fret": 1,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            1,
+            6,
+            1,
+            9
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            1,
+            6,
+            11,
+            4
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "A#3",
+            "D4",
+            "F4",
+            "G#4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          1,
-          6,
-          1,
-          9
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          1,
-          6,
-          11,
-          4
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "A#3",
-          "D4",
-          "F4",
-          "G#4"
-        ]
-      }
+      ]
     }
   },
   "A#maj7": {
     "name": "A#maj7",
     "display_name": "A# major 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          1,
-          3,
-          2,
-          3,
-          1
-        ],
-        "fingers": [
-          1,
-          1,
-          3,
-          2,
-          4,
-          1
-        ],
-        "position": 1
-      },
-      "banjo": {
-        "frets": [
-          2,
-          7,
-          2,
-          10
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          2,
-          7,
-          0,
-          5
-        ],
-        "fingers": [
-          1,
-          2,
-          0,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "A#3",
-          "D4",
-          "F4",
-          "A4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            1,
+            3,
+            2,
+            3,
+            1
+          ],
+          "fingers": [
+            1,
+            1,
+            3,
+            2,
+            4,
+            1
+          ],
+          "position": 1
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            2,
+            7,
+            2,
+            10
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            2,
+            7,
+            0,
+            5
+          ],
+          "fingers": [
+            1,
+            2,
+            0,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "A#3",
+            "D4",
+            "F4",
+            "A4"
+          ]
+        }
+      ]
     }
   },
   "A#m7": {
     "name": "A#m7",
     "display_name": "A# minor 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          1,
-          3,
-          1,
-          2,
-          1
-        ],
-        "fingers": [
-          1,
-          1,
-          3,
-          1,
-          2,
-          1
-        ],
-        "position": 1,
-        "barre": {
-          "fret": 1,
-          "strings": [
+      "guitar": [
+        {
+          "frets": [
+            -1,
             1,
-            5
+            3,
+            1,
+            2,
+            1
+          ],
+          "fingers": [
+            1,
+            1,
+            3,
+            1,
+            2,
+            1
+          ],
+          "position": 1,
+          "barre": {
+            "fret": 1,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            1,
+            6,
+            1,
+            9
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            1,
+            6,
+            11,
+            4
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "A#3",
+            "C#4",
+            "F4",
+            "G#4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          1,
-          6,
-          1,
-          9
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          1,
-          6,
-          11,
-          4
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "A#3",
-          "C#4",
-          "F4",
-          "G#4"
-        ]
-      }
+      ]
     }
   },
   "B": {
     "name": "B",
     "display_name": "B major",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          2,
-          4,
-          4,
-          4,
-          2
-        ],
-        "fingers": [
-          1,
-          1,
-          2,
-          3,
-          4,
-          1
-        ],
-        "position": 2,
-        "barre": {
-          "fret": 2,
-          "strings": [
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            2,
+            4,
+            4,
+            4,
+            2
+          ],
+          "fingers": [
             1,
-            5
+            1,
+            2,
+            3,
+            4,
+            1
+          ],
+          "position": 2,
+          "barre": {
+            "fret": 2,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        },
+        {
+          "frets": [
+            -1,
+            2,
+            4,
+            4,
+            4,
+            2
+          ],
+          "fingers": [
+            0,
+            1,
+            3,
+            3,
+            3,
+            1
+          ],
+          "position": 2,
+          "barre": {
+            "fret": 2,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        },
+        {
+          "frets": [
+            7,
+            9,
+            9,
+            8,
+            7,
+            7
+          ],
+          "fingers": [
+            1,
+            3,
+            4,
+            2,
+            1,
+            1
+          ],
+          "position": 7,
+          "barre": {
+            "fret": 7,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            11,
+            4,
+            11,
+            7
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            11,
+            4,
+            9,
+            2
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "B3",
+            "D#4",
+            "F#4"
+          ]
+        },
+        {
+          "keys": [
+            "D#3",
+            "F#3",
+            "B3"
+          ]
+        },
+        {
+          "keys": [
+            "F#3",
+            "B3",
+            "D#4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          11,
-          4,
-          11,
-          7
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          11,
-          4,
-          9,
-          2
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "B3",
-          "D#4",
-          "F#4"
-        ]
-      }
+      ]
     }
   },
   "Bm": {
     "name": "Bm",
     "display_name": "B minor",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          2,
-          4,
-          4,
-          3,
-          2
-        ],
-        "fingers": [
-          1,
-          1,
-          3,
-          4,
-          2,
-          1
-        ],
-        "position": 2,
-        "barre": {
-          "fret": 2,
-          "strings": [
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            2,
+            4,
+            4,
+            3,
+            2
+          ],
+          "fingers": [
             1,
-            5
+            1,
+            3,
+            4,
+            2,
+            1
+          ],
+          "position": 2,
+          "barre": {
+            "fret": 2,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        },
+        {
+          "frets": [
+            -1,
+            2,
+            4,
+            4,
+            3,
+            2
+          ],
+          "fingers": [
+            0,
+            1,
+            3,
+            4,
+            2,
+            1
+          ],
+          "position": 2,
+          "barre": {
+            "fret": 2,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        },
+        {
+          "frets": [
+            7,
+            9,
+            9,
+            7,
+            7,
+            7
+          ],
+          "fingers": [
+            1,
+            3,
+            4,
+            1,
+            1,
+            1
+          ],
+          "position": 7,
+          "barre": {
+            "fret": 7,
+            "strings": [
+              0,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            11,
+            4,
+            11,
+            7
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            11,
+            4,
+            9,
+            2
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "B3",
+            "D4",
+            "F#4"
+          ]
+        },
+        {
+          "keys": [
+            "D3",
+            "F#3",
+            "B3"
+          ]
+        },
+        {
+          "keys": [
+            "F#3",
+            "B3",
+            "D4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          11,
-          4,
-          11,
-          7
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          11,
-          4,
-          9,
-          2
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "B3",
-          "D4",
-          "F#4"
-        ]
-      }
+      ]
     }
   },
   "B7": {
     "name": "B7",
     "display_name": "B dominant 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          2,
-          1,
-          2,
-          0,
-          2
-        ],
-        "fingers": [
-          0,
-          2,
-          1,
-          3,
-          0,
-          4
-        ],
-        "position": 0
-      },
-      "banjo": {
-        "frets": [
-          2,
-          7,
-          2,
-          10
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          2,
-          7,
-          0,
-          5
-        ],
-        "fingers": [
-          1,
-          2,
-          0,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "B3",
-          "D#4",
-          "F#4",
-          "A4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            2,
+            1,
+            2,
+            0,
+            2
+          ],
+          "fingers": [
+            0,
+            2,
+            1,
+            3,
+            0,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            2,
+            7,
+            2,
+            10
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            2,
+            7,
+            0,
+            5
+          ],
+          "fingers": [
+            1,
+            2,
+            0,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "B3",
+            "D#4",
+            "F#4",
+            "A4"
+          ]
+        }
+      ]
     }
   },
   "Bmaj7": {
     "name": "Bmaj7",
     "display_name": "B major 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          2,
-          4,
-          3,
-          4,
-          2
-        ],
-        "fingers": [
-          1,
-          1,
-          3,
-          2,
-          4,
-          1
-        ],
-        "position": 2
-      },
-      "banjo": {
-        "frets": [
-          3,
-          8,
-          3,
-          11
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          3,
-          8,
-          1,
-          6
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "B3",
-          "D#4",
-          "F#4",
-          "A#4"
-        ]
-      }
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            2,
+            4,
+            3,
+            4,
+            2
+          ],
+          "fingers": [
+            1,
+            1,
+            3,
+            2,
+            4,
+            1
+          ],
+          "position": 2
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            3,
+            8,
+            3,
+            11
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            3,
+            8,
+            1,
+            6
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "B3",
+            "D#4",
+            "F#4",
+            "A#4"
+          ]
+        }
+      ]
     }
   },
   "Bm7": {
     "name": "Bm7",
     "display_name": "B minor 7th",
     "instruments": {
-      "guitar": {
-        "frets": [
-          -1,
-          2,
-          4,
-          2,
-          3,
-          2
-        ],
-        "fingers": [
-          1,
-          1,
-          3,
-          1,
-          2,
-          1
-        ],
-        "position": 2,
-        "barre": {
-          "fret": 2,
-          "strings": [
+      "guitar": [
+        {
+          "frets": [
+            -1,
+            2,
+            4,
+            2,
+            3,
+            2
+          ],
+          "fingers": [
             1,
+            1,
+            3,
+            1,
+            2,
+            1
+          ],
+          "position": 2,
+          "barre": {
+            "fret": 2,
+            "strings": [
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "banjo": [
+        {
+          "frets": [
+            2,
+            7,
+            2,
+            10
+          ],
+          "fingers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "mandolin": [
+        {
+          "frets": [
+            2,
+            7,
+            0,
             5
+          ],
+          "fingers": [
+            1,
+            2,
+            0,
+            4
+          ],
+          "position": 0
+        }
+      ],
+      "piano": [
+        {
+          "keys": [
+            "B3",
+            "D4",
+            "F#4",
+            "A4"
           ]
         }
-      },
-      "banjo": {
-        "frets": [
-          2,
-          7,
-          2,
-          10
-        ],
-        "fingers": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "position": 0
-      },
-      "mandolin": {
-        "frets": [
-          2,
-          7,
-          0,
-          5
-        ],
-        "fingers": [
-          1,
-          2,
-          0,
-          4
-        ],
-        "position": 0
-      },
-      "piano": {
-        "keys": [
-          "B3",
-          "D4",
-          "F#4",
-          "A4"
-        ]
-      }
+      ]
     }
   }
 }

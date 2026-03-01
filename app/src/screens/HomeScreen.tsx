@@ -1,16 +1,12 @@
 import React from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { InstrumentPicker } from "../components/InstrumentPicker";
 import { ListenOrb } from "../components/ListenOrb";
-import { useInstrument } from "../hooks/useInstrument";
 import { colors } from "../theme";
 
 type Props = { navigation: NativeStackNavigationProp<any> };
 
 export function HomeScreen({ navigation }: Props) {
-  const { instrument, setInstrument } = useInstrument();
-
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -18,15 +14,13 @@ export function HomeScreen({ navigation }: Props) {
         <Text style={styles.subtitle}>Identify chord progressions in real time</Text>
       </View>
 
-      <InstrumentPicker selected={instrument} onSelect={setInstrument} />
-
       <View style={styles.orbArea}>
         <ListenOrb
           state="idle"
-          onPress={() => navigation.navigate("Listening", { instrument })}
+          onPress={() => navigation.navigate("Listening")}
         />
         <Pressable
-          onPress={() => navigation.navigate("Listening", { instrument, demo: true })}
+          onPress={() => navigation.navigate("Listening", { demo: true })}
           style={styles.demoLink}
         >
           <Text style={styles.demoText}>Try a demo</Text>

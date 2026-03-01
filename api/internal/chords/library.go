@@ -23,10 +23,10 @@ type PianoVoicing struct {
 }
 
 type Instruments struct {
-	Guitar   StringedVoicing `json:"guitar"`
-	Banjo    StringedVoicing `json:"banjo"`
-	Mandolin StringedVoicing `json:"mandolin"`
-	Piano    PianoVoicing    `json:"piano"`
+	Guitar   []StringedVoicing `json:"guitar"`
+	Banjo    []StringedVoicing `json:"banjo"`
+	Mandolin []StringedVoicing `json:"mandolin"`
+	Piano    []PianoVoicing    `json:"piano"`
 }
 
 type ChordVoicing struct {
