@@ -78,7 +78,7 @@ export function BottomSheet({ visible, onClose, children }: Props) {
 const styles = StyleSheet.create({
   scrim: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: "rgba(0,0,0,0.6)",
+    backgroundColor: "rgba(0,0,0,0.65)",
   },
   sheet: {
     position: "absolute",
@@ -86,21 +86,22 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     height: SHEET_HEIGHT,
-    backgroundColor: "rgba(18,18,24,0.97)",
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
+    backgroundColor: "rgba(26,20,16,0.98)",
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     borderTopWidth: 1,
-    borderColor: colors.surfaceBorder,
+    borderColor: "rgba(184,148,62,0.25)",
     alignItems: "center",
     paddingTop: 12,
     paddingHorizontal: 24,
     paddingBottom: 40,
   },
   handle: {
-    width: 40,
+    width: 44,
     height: 4,
     borderRadius: 2,
-    backgroundColor: "rgba(255,255,255,0.2)",
+    backgroundColor: colors.brass,
+    opacity: 0.5,
     marginBottom: 20,
   },
 });

@@ -29,7 +29,7 @@ export function HomeScreen({ navigation }: Props) {
           onPress={() => navigation.navigate("Listening", { instrument, demo: true })}
           style={styles.demoLink}
         >
-          <Text style={styles.demoText}>Try a demo →</Text>
+          <Text style={styles.demoText}>Try a demo</Text>
         </Pressable>
       </View>
     </View>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     letterSpacing: -0.5,
     textShadowColor: colors.accent,
     textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 16,
+    textShadowRadius: 12,
     marginBottom: 8,
   },
   subtitle: {
@@ -66,7 +66,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     gap: 24,
   },
-  demoLink: { paddingVertical: 8 },
+  demoLink: {
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.textSecondary,
+  },
   demoText: {
     color: colors.textSecondary,
     fontSize: 14,

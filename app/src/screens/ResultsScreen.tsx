@@ -22,7 +22,7 @@ export function ResultsScreen({ route, navigation }: any) {
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.title}>Results</Text>
-        <Pressable onPress={() => navigation.navigate("Home")}>
+        <Pressable onPress={() => navigation.navigate("Home")} style={styles.newSessionLink}>
           <Text style={styles.newSession}>New Session</Text>
         </Pressable>
       </View>
@@ -89,6 +89,11 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     letterSpacing: -0.5,
   },
+  newSessionLink: {
+    borderBottomWidth: 1,
+    borderBottomColor: colors.accent,
+    paddingBottom: 2,
+  },
   newSession: {
     color: colors.accent,
     fontSize: 14,
@@ -100,8 +105,8 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   sectionLabel: {
-    color: colors.accent,
-    fontWeight: "600",
+    color: colors.brass,
+    fontWeight: "700",
     fontSize: 11,
     textTransform: "uppercase",
     letterSpacing: 1.5,

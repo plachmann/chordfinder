@@ -1,0 +1,10 @@
+{
+  "planPath": "docs/plans/2026-02-28-chord-cascade-implementation.md",
+  "tasks": [
+    { "id": 1, "subject": "Task 1: Create CascadeChip component", "status": "pending" },
+    { "id": 2, "subject": "Task 2: Create ChordCascade component", "status": "pending", "blockedBy": [1] },
+    { "id": 3, "subject": "Task 3: Integrate ChordCascade into ListeningScreen", "status": "pending", "blockedBy": [1, 2] },
+    { "id": 4, "subject": "Task 4: Visual verification", "status": "pending", "blockedBy": [3] }
+  ],
+  "lastUpdated": "2026-02-28T00:00:00Z"
+}

@@ -3,6 +3,7 @@ import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
 import { GuitarDiagram } from "./GuitarDiagram";
 import { PianoDiagram } from "./PianoDiagram";
 import { Instrument } from "../types/api";
+import { colors } from "../theme";
 
 import { API_BASE } from "../config";
 
@@ -34,7 +35,7 @@ export function ChordDiagram({ chordName, instrument }: Props) {
       .catch(() => setLoading(false));
   }, [chordName]);
 
-  if (loading) return <ActivityIndicator color="#6c47ff" />;
+  if (loading) return <ActivityIndicator color={colors.accent} />;
   if (!voicing) return <Text style={styles.unknown}>?</Text>;
 
   const v = voicing.instruments?.[instrument];
@@ -60,6 +61,6 @@ export function ChordDiagram({ chordName, instrument }: Props) {
 
 const styles = StyleSheet.create({
   container: { alignItems: "center", padding: 8 },
-  name: { color: "#fff", fontSize: 16, fontWeight: "600", marginBottom: 8 },
-  unknown: { color: "#888", fontSize: 28 },
+  name: { color: colors.textPrimary, fontSize: 16, fontWeight: "600", marginBottom: 8 },
+  unknown: { color: colors.textSecondary, fontSize: 28 },
 });
